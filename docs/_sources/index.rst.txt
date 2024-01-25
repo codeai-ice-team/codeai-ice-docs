@@ -19,10 +19,10 @@ ICE - Industrial Condition Evaluation
 
    .. grid-item-card:: Getting started
 
-      Introduction to the ICE library. Task descriptions. Dataset descriptions.
+      Installation, tasks descriptions and quick tutorials.
 
       .. button-ref:: start
-         :color: info
+         :color: primary
 
          Getting started
 
@@ -31,7 +31,7 @@ ICE - Industrial Condition Evaluation
       Advanced materials and tutorials.
 
       .. button-ref:: advanced
-         :color: info
+         :color: primary
 
          Advanced materials
 
@@ -40,7 +40,7 @@ ICE - Industrial Condition Evaluation
       Detailed description of classe and functions
 
       .. button-ref:: reference
-         :color: info
+         :color: primary
 
          API reference
 
@@ -49,7 +49,7 @@ ICE - Industrial Condition Evaluation
       How to create your own model? How to use your data?
 
       .. button-ref:: custom
-         :color: info
+         :color: primary
 
          Custom classes
 
@@ -58,6 +58,6 @@ ICE - Industrial Condition Evaluation
       Which models are the best? Tables with metrics.
 
       .. button-ref:: benchmark
-         :color: info
+         :color: primary
 
          Benchmarking
