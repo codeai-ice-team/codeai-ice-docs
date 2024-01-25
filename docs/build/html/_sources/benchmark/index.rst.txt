@@ -1,5 +1,0 @@
-.. _benchmark:
-
-############
-Benchmarking
-############

@@ -1,5 +1,0 @@
-.. _advanced:
-
-##################
-Advanced materials
-##################
