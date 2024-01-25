@@ -346,7 +346,9 @@ document.write(`
  | <a href="#F"><strong>F</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  
@@ -354,31 +356,53 @@ document.write(`
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.metrics.accuracy">accuracy() (in module ice.fault_diagnosis.metrics)</a>
+      <li><a href="reference/ice.anomaly_detection.html#ice.anomaly_detection.metrics.accuracy">accuracy() (in module ice.anomaly_detection.metrics)</a>
+
+      <ul>
+        <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.metrics.accuracy">(in module ice.fault_diagnosis.metrics)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/ice.anomaly_detection.html#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP">AnomalyDetectionReinartzTEP (class in ice.anomaly_detection.datasets)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.AutoEncoderMLP">AutoEncoderMLP (class in ice.anomaly_detection.models)</a>
+      <li><a href="reference/ice.anomaly_detection.html#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP">AnomalyDetectionSmallTEP (class in ice.anomaly_detection.datasets)</a>
 </li>
+      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.AutoEncoderMLP">AutoEncoderMLP (class in ice.anomaly_detection.models)</a>
+
+      <ul>
+        <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP">(class in ice.anomaly_detection.models.autoencoder)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection">BaseAnomalyDetection (class in ice.anomaly_detection.models.base)</a>
+</li>
       <li><a href="reference/ice.html#ice.base.BaseDataset">BaseDataset (class in ice.base)</a>
+</li>
+      <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.base.BaseFaultDiagnosis">BaseFaultDiagnosis (class in ice.fault_diagnosis.models.base)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.base.BaseFaultDiagnosis">BaseFaultDiagnosis (class in ice.fault_diagnosis.models.base)</a>
+      <li><a href="reference/ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation">BaseHealthIndexEstimation (class in ice.health_index_estimation.models.base)</a>
 </li>
       <li><a href="reference/ice.html#ice.base.BaseModel">BaseModel (class in ice.base)</a>
+</li>
+      <li><a href="reference/ice.remaining_useful_life_estimation.models.html#ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation">BaseRemainingUsefulLifeEstimation (class in ice.remaining_useful_life_estimation.models.base)</a>
 </li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.configs.html#ice.configs.Config">Config (class in ice.configs)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.metrics.correct_daignosis_rate">correct_daignosis_rate() (in module ice.fault_diagnosis.metrics)</a>
 </li>
@@ -388,10 +412,16 @@ document.write(`
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.html#ice.base.BaseModel.evaluate">evaluate() (ice.base.BaseModel method)</a>
+      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.evaluate">evaluate() (ice.anomaly_detection.models.base.BaseAnomalyDetection method)</a>
 
       <ul>
+        <li><a href="reference/ice.html#ice.base.BaseModel.evaluate">(ice.base.BaseModel method)</a>
+</li>
         <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.base.BaseFaultDiagnosis.evaluate">(ice.fault_diagnosis.models.base.BaseFaultDiagnosis method)</a>
+</li>
+        <li><a href="reference/ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation.evaluate">(ice.health_index_estimation.models.base.BaseHealthIndexEstimation method)</a>
+</li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.models.html#ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation.evaluate">(ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -402,9 +432,19 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.metrics.false_positive_rate">false_positive_rate() (in module ice.fault_diagnosis.metrics)</a>
 </li>
+      <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP">FaultDiagnosisReinartzTEP (class in ice.fault_diagnosis.datasets)</a>
+</li>
+      <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP">FaultDiagnosisSmallTEP (class in ice.fault_diagnosis.datasets)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.html#ice.base.BaseModel.fit">fit() (ice.base.BaseModel method)</a>
+      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.fit">fit() (ice.anomaly_detection.models.base.BaseAnomalyDetection method)</a>
+
+      <ul>
+        <li><a href="reference/ice.html#ice.base.BaseModel.fit">(ice.base.BaseModel method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP.forward">forward() (ice.anomaly_detection.models.autoencoder.MLP method)</a>
 </li>
       <li><a href="reference/ice.html#ice.base.BaseModel.from_config">from_config() (ice.base.BaseModel class method)</a>
 </li>
@@ -429,10 +469,45 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    ice.anomaly_detection.datasets
+
+      <ul>
+        <li><a href="reference/ice.anomaly_detection.html#module-ice.anomaly_detection.datasets">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.anomaly_detection.metrics
+
+      <ul>
+        <li><a href="reference/ice.anomaly_detection.html#module-ice.anomaly_detection.metrics">module</a>
+</li>
+      </ul></li>
+      <li>
     ice.anomaly_detection.models
 
       <ul>
         <li><a href="reference/ice.anomaly_detection.models.html#module-ice.anomaly_detection.models">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.anomaly_detection.models.autoencoder
+
+      <ul>
+        <li><a href="reference/ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.autoencoder">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.anomaly_detection.models.base
+
+      <ul>
+        <li><a href="reference/ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.anomaly_detection.utils
+
+      <ul>
+        <li><a href="reference/ice.anomaly_detection.html#module-ice.anomaly_detection.utils">module</a>
 </li>
       </ul></li>
       <li>
@@ -443,10 +518,24 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    ice.configs
+
+      <ul>
+        <li><a href="reference/ice.configs.html#module-ice.configs">module</a>
+</li>
+      </ul></li>
+      <li>
     ice.fault_diagnosis
 
       <ul>
         <li><a href="reference/ice.fault_diagnosis.html#module-ice.fault_diagnosis">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.fault_diagnosis.datasets
+
+      <ul>
+        <li><a href="reference/ice.fault_diagnosis.html#module-ice.fault_diagnosis.datasets">module</a>
 </li>
       </ul></li>
       <li>
@@ -463,8 +552,6 @@ document.write(`
         <li><a href="reference/ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     ice.fault_diagnosis.models.base
 
@@ -477,6 +564,15 @@ document.write(`
 
       <ul>
         <li><a href="reference/ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.mlp">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    ice.fault_diagnosis.models.tcn
+
+      <ul>
+        <li><a href="reference/ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.tcn">module</a>
 </li>
       </ul></li>
       <li>
@@ -494,10 +590,45 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    ice.health_index_estimation.datasets
+
+      <ul>
+        <li><a href="reference/ice.health_index_estimation.html#module-ice.health_index_estimation.datasets">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.health_index_estimation.metrics
+
+      <ul>
+        <li><a href="reference/ice.health_index_estimation.html#module-ice.health_index_estimation.metrics">module</a>
+</li>
+      </ul></li>
+      <li>
     ice.health_index_estimation.models
 
       <ul>
         <li><a href="reference/ice.health_index_estimation.models.html#module-ice.health_index_estimation.models">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.health_index_estimation.models.base
+
+      <ul>
+        <li><a href="reference/ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.health_index_estimation.models.mlp
+
+      <ul>
+        <li><a href="reference/ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.mlp">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.health_index_estimation.utils
+
+      <ul>
+        <li><a href="reference/ice.health_index_estimation.html#module-ice.health_index_estimation.utils">module</a>
 </li>
       </ul></li>
       <li>
@@ -508,10 +639,45 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    ice.remaining_useful_life_estimation.datasets
+
+      <ul>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.datasets">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.remaining_useful_life_estimation.metrics
+
+      <ul>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.metrics">module</a>
+</li>
+      </ul></li>
+      <li>
     ice.remaining_useful_life_estimation.models
 
       <ul>
         <li><a href="reference/ice.remaining_useful_life_estimation.models.html#module-ice.remaining_useful_life_estimation.models">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.remaining_useful_life_estimation.models.base
+
+      <ul>
+        <li><a href="reference/ice.remaining_useful_life_estimation.models.html#module-ice.remaining_useful_life_estimation.models.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.remaining_useful_life_estimation.models.mlp
+
+      <ul>
+        <li><a href="reference/ice.remaining_useful_life_estimation.models.html#module-ice.remaining_useful_life_estimation.models.mlp">module</a>
+</li>
+      </ul></li>
+      <li>
+    ice.remaining_useful_life_estimation.utils
+
+      <ul>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.utils">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -520,14 +686,22 @@ document.write(`
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.MLP">MLP (class in ice.fault_diagnosis.models)</a>
+      <li><a href="reference/ice.health_index_estimation.html#ice.health_index_estimation.datasets.Milling">Milling (class in ice.health_index_estimation.datasets)</a>
+</li>
+      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP">MLP (class in ice.anomaly_detection.models.autoencoder)</a>
 
       <ul>
+        <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.MLP">(class in ice.fault_diagnosis.models)</a>
+</li>
         <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.mlp.MLP">(class in ice.fault_diagnosis.models.mlp)</a>
 </li>
         <li><a href="reference/ice.health_index_estimation.models.html#ice.health_index_estimation.models.MLP">(class in ice.health_index_estimation.models)</a>
 </li>
+        <li><a href="reference/ice.health_index_estimation.models.html#ice.health_index_estimation.models.mlp.MLP">(class in ice.health_index_estimation.models.mlp)</a>
+</li>
         <li><a href="reference/ice.remaining_useful_life_estimation.models.html#ice.remaining_useful_life_estimation.models.MLP">(class in ice.remaining_useful_life_estimation.models)</a>
+</li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.models.html#ice.remaining_useful_life_estimation.models.mlp.MLP">(class in ice.remaining_useful_life_estimation.models.mlp)</a>
 </li>
       </ul></li>
       <li>
@@ -538,11 +712,25 @@ document.write(`
 </li>
         <li><a href="reference/ice.anomaly_detection.html#module-ice.anomaly_detection">ice.anomaly_detection</a>
 </li>
+        <li><a href="reference/ice.anomaly_detection.html#module-ice.anomaly_detection.datasets">ice.anomaly_detection.datasets</a>
+</li>
+        <li><a href="reference/ice.anomaly_detection.html#module-ice.anomaly_detection.metrics">ice.anomaly_detection.metrics</a>
+</li>
         <li><a href="reference/ice.anomaly_detection.models.html#module-ice.anomaly_detection.models">ice.anomaly_detection.models</a>
+</li>
+        <li><a href="reference/ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.autoencoder">ice.anomaly_detection.models.autoencoder</a>
+</li>
+        <li><a href="reference/ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.base">ice.anomaly_detection.models.base</a>
+</li>
+        <li><a href="reference/ice.anomaly_detection.html#module-ice.anomaly_detection.utils">ice.anomaly_detection.utils</a>
 </li>
         <li><a href="reference/ice.html#module-ice.base">ice.base</a>
 </li>
+        <li><a href="reference/ice.configs.html#module-ice.configs">ice.configs</a>
+</li>
         <li><a href="reference/ice.fault_diagnosis.html#module-ice.fault_diagnosis">ice.fault_diagnosis</a>
+</li>
+        <li><a href="reference/ice.fault_diagnosis.html#module-ice.fault_diagnosis.datasets">ice.fault_diagnosis.datasets</a>
 </li>
         <li><a href="reference/ice.fault_diagnosis.html#module-ice.fault_diagnosis.metrics">ice.fault_diagnosis.metrics</a>
 </li>
@@ -552,24 +740,76 @@ document.write(`
 </li>
         <li><a href="reference/ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.mlp">ice.fault_diagnosis.models.mlp</a>
 </li>
+        <li><a href="reference/ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.tcn">ice.fault_diagnosis.models.tcn</a>
+</li>
         <li><a href="reference/ice.fault_diagnosis.html#module-ice.fault_diagnosis.utils">ice.fault_diagnosis.utils</a>
 </li>
         <li><a href="reference/ice.health_index_estimation.html#module-ice.health_index_estimation">ice.health_index_estimation</a>
 </li>
+        <li><a href="reference/ice.health_index_estimation.html#module-ice.health_index_estimation.datasets">ice.health_index_estimation.datasets</a>
+</li>
+        <li><a href="reference/ice.health_index_estimation.html#module-ice.health_index_estimation.metrics">ice.health_index_estimation.metrics</a>
+</li>
         <li><a href="reference/ice.health_index_estimation.models.html#module-ice.health_index_estimation.models">ice.health_index_estimation.models</a>
+</li>
+        <li><a href="reference/ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.base">ice.health_index_estimation.models.base</a>
+</li>
+        <li><a href="reference/ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.mlp">ice.health_index_estimation.models.mlp</a>
+</li>
+        <li><a href="reference/ice.health_index_estimation.html#module-ice.health_index_estimation.utils">ice.health_index_estimation.utils</a>
 </li>
         <li><a href="reference/ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation">ice.remaining_useful_life_estimation</a>
 </li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.datasets">ice.remaining_useful_life_estimation.datasets</a>
+</li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.metrics">ice.remaining_useful_life_estimation.metrics</a>
+</li>
         <li><a href="reference/ice.remaining_useful_life_estimation.models.html#module-ice.remaining_useful_life_estimation.models">ice.remaining_useful_life_estimation.models</a>
 </li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.models.html#module-ice.remaining_useful_life_estimation.models.base">ice.remaining_useful_life_estimation.models.base</a>
+</li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.models.html#module-ice.remaining_useful_life_estimation.models.mlp">ice.remaining_useful_life_estimation.models.mlp</a>
+</li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.utils">ice.remaining_useful_life_estimation.utils</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.health_index_estimation.html#ice.health_index_estimation.metrics.mse">mse() (in module ice.health_index_estimation.metrics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.remaining_useful_life_estimation.html#ice.remaining_useful_life_estimation.metrics.nonsimmetric_function">nonsimmetric_function() (in module ice.remaining_useful_life_estimation.metrics)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.configs.html#ice.configs.Config.path_get">path_get() (ice.configs.Config method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.configs.html#ice.configs.Config.path_set">path_set() (ice.configs.Config method)</a>
+</li>
       <li><a href="reference/ice.html#ice.base.BaseModel.predict">predict() (ice.base.BaseModel method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.remaining_useful_life_estimation.html#ice.remaining_useful_life_estimation.metrics.rmse">rmse() (in module ice.remaining_useful_life_estimation.metrics)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.remaining_useful_life_estimation.html#ice.remaining_useful_life_estimation.datasets.RulCmapss">RulCmapss (class in ice.remaining_useful_life_estimation.datasets)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -577,12 +817,36 @@ document.write(`
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.html#ice.base.BaseDataset.set_name_public_link">set_name_public_link() (ice.base.BaseDataset method)</a>
+      <li><a href="reference/ice.remaining_useful_life_estimation.html#ice.remaining_useful_life_estimation.metrics.score">score() (in module ice.remaining_useful_life_estimation.metrics)</a>
 </li>
+      <li><a href="reference/ice.anomaly_detection.html#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.set_name_public_link">set_name_public_link() (ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP method)</a>
+
+      <ul>
+        <li><a href="reference/ice.anomaly_detection.html#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP.set_name_public_link">(ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP method)</a>
+</li>
+        <li><a href="reference/ice.html#ice.base.BaseDataset.set_name_public_link">(ice.base.BaseDataset method)</a>
+</li>
+        <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP.set_name_public_link">(ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP method)</a>
+</li>
+        <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP.set_name_public_link">(ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP method)</a>
+</li>
+        <li><a href="reference/ice.health_index_estimation.html#ice.health_index_estimation.datasets.Milling.set_name_public_link">(ice.health_index_estimation.datasets.Milling method)</a>
+</li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#ice.remaining_useful_life_estimation.datasets.RulCmapss.set_name_public_link">(ice.remaining_useful_life_estimation.datasets.RulCmapss method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.utils.SlidingWindowDataset">SlidingWindowDataset (class in ice.fault_diagnosis.utils)</a>
+      <li><a href="reference/ice.anomaly_detection.html#ice.anomaly_detection.utils.SlidingWindowDataset">SlidingWindowDataset (class in ice.anomaly_detection.utils)</a>
+
+      <ul>
+        <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.utils.SlidingWindowDataset">(class in ice.fault_diagnosis.utils)</a>
 </li>
+        <li><a href="reference/ice.health_index_estimation.html#ice.health_index_estimation.utils.SlidingWindowDataset">(class in ice.health_index_estimation.utils)</a>
+</li>
+        <li><a href="reference/ice.remaining_useful_life_estimation.html#ice.remaining_useful_life_estimation.utils.SlidingWindowDataset">(class in ice.remaining_useful_life_estimation.utils)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -590,9 +854,17 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.TCN">TCN (class in ice.fault_diagnosis.models)</a>
+
+      <ul>
+        <li><a href="reference/ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.tcn.TCN">(class in ice.fault_diagnosis.models.tcn)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/ice.configs.html#ice.configs.Config.to_yaml">to_yaml() (ice.configs.Config method)</a>
+</li>
+      <li><a href="reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP.training">training (ice.anomaly_detection.models.autoencoder.MLP attribute)</a>
+</li>
       <li><a href="reference/ice.fault_diagnosis.html#ice.fault_diagnosis.metrics.true_positive_rate">true_positive_rate() (in module ice.fault_diagnosis.metrics)</a>
 </li>
   </ul></td>

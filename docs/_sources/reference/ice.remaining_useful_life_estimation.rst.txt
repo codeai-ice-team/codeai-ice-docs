@@ -9,6 +9,33 @@ Subpackages
 
    ice.remaining_useful_life_estimation.models
 
+Submodules
+----------
+
+ice.remaining\_useful\_life\_estimation.datasets module
+-------------------------------------------------------
+
+.. automodule:: ice.remaining_useful_life_estimation.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.remaining\_useful\_life\_estimation.metrics module
+------------------------------------------------------
+
+.. automodule:: ice.remaining_useful_life_estimation.metrics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.remaining\_useful\_life\_estimation.utils module
+----------------------------------------------------
+
+.. automodule:: ice.remaining_useful_life_estimation.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

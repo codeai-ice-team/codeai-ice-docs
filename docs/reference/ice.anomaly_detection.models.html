@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/ice.anomaly_detection.models';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ice.fault_diagnosis package" href="ice.fault_diagnosis.html" />
+    <link rel="next" title="ice.configs package" href="ice.configs.html" />
     <link rel="prev" title="ice.anomaly_detection package" href="ice.anomaly_detection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -329,6 +329,7 @@ document.write(`
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">ice.anomaly_detection.models package</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ice.configs.html">ice.configs package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ice.fault_diagnosis.html">ice.fault_diagnosis package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html">ice.fault_diagnosis.models package</a></li>
 </ul>
@@ -410,12 +411,101 @@ document.write(`
                   
   <section id="ice-anomaly-detection-models-package">
 <h1>ice.anomaly_detection.models package<a class="headerlink" href="#ice-anomaly-detection-models-package" title="Permalink to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-ice.anomaly_detection.models.autoencoder">
+<span id="ice-anomaly-detection-models-autoencoder-module"></span><h2>ice.anomaly_detection.models.autoencoder module<a class="headerlink" href="#module-ice.anomaly_detection.models.autoencoder" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ice.anomaly_detection.models.autoencoder.AutoEncoderMLP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.models.autoencoder.</span></span><span class="sig-name descname"><span class="pre">AutoEncoderMLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ae_anomaly_detection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[256,</span> <span class="pre">128,</span> <span class="pre">64]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection" title="ice.anomaly_detection.models.base.BaseAnomalyDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseAnomalyDetection</span></code></a></p>
+<p>Autoencoder (AE) consists of encoder and decoder parts. Each
+sample is reshaped to a vector (B, L, C) -&gt; (B, L * C) for calculations
+and to a vector (B, L * C) -&gt; (B, L, C) for the output. Where B is the
+batch size, L is the sequence length, C is the number of sensors.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ice.anomaly_detection.models.autoencoder.MLP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.models.autoencoder.</span></span><span class="sig-name descname"><span class="pre">MLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_sensors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.models.autoencoder.MLP" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.anomaly_detection.models.autoencoder.MLP.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.models.autoencoder.MLP.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ice.anomaly_detection.models.autoencoder.MLP.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#ice.anomaly_detection.models.autoencoder.MLP.training" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-ice.anomaly_detection.models.base">
+<span id="ice-anomaly-detection-models-base-module"></span><h2>ice.anomaly_detection.models.base module<a class="headerlink" href="#module-ice.anomaly_detection.models.base" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ice.anomaly_detection.models.base.BaseAnomalyDetection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.models.base.</span></span><span class="sig-name descname"><span class="pre">BaseAnomalyDetection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ice.html#ice.base.BaseModel" title="ice.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for all anomaly detection models.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.anomaly_detection.models.base.BaseAnomalyDetection.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection.evaluate" title="Permalink to this definition">#</a></dt>
+<dd><p>Evaluate the metrics: accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – A dataframe with sensor data. Index has
+two columns: <cite>run_id</cite> and <cite>sample</cite>. All other columns a value of
+sensors.</p></li>
+<li><p><strong>target</strong> (<em>pandas.Series</em>) – A series with target values. Indes has two
+columns: <cite>run_id</cite> and <cite>sample</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A dictionary with metrics where keys are names of metrics and</dt><dd><p>values are values of metrics.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.anomaly_detection.models.base.BaseAnomalyDetection.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection.fit" title="Permalink to this definition">#</a></dt>
+<dd><p>Method fit for training anomaly detection models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – data without anomaly states</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-ice.anomaly_detection.models">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ice.anomaly_detection.models" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ice.anomaly_detection.models.AutoEncoderMLP">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.models.</span></span><span class="sig-name descname"><span class="pre">AutoEncoderMLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ae_anomaly_detection'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[256,</span> <span class="pre">128,</span> <span class="pre">64]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.models.AutoEncoderMLP" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseAnomalyDetection</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection" title="ice.anomaly_detection.models.base.BaseAnomalyDetection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseAnomalyDetection</span></code></a></p>
 <p>Autoencoder (AE) consists of encoder and decoder parts. Each
 sample is reshaped to a vector (B, L, C) -&gt; (B, L * C) for calculations
 and to a vector (B, L * C) -&gt; (B, L, C) for the output. Where B is the
@@ -445,11 +535,11 @@ batch size, L is the sequence length, C is the number of sensors.</p>
       </div>
     </a>
     <a class="right-next"
-       href="ice.fault_diagnosis.html"
+       href="ice.configs.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ice.fault_diagnosis package</p>
+        <p class="prev-next-title">ice.configs package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -468,6 +558,24 @@ batch size, L is the sequence length, C is the number of sensors.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.anomaly_detection.models.autoencoder">ice.anomaly_detection.models.autoencoder module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP"><code class="docutils literal notranslate"><span class="pre">AutoEncoderMLP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.autoencoder.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.autoencoder.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.autoencoder.MLP.training"><code class="docutils literal notranslate"><span class="pre">MLP.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.anomaly_detection.models.base">ice.anomaly_detection.models.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.base.BaseAnomalyDetection.fit"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.anomaly_detection.models">Module contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.models.AutoEncoderMLP"><code class="docutils literal notranslate"><span class="pre">AutoEncoderMLP</span></code></a></li>
 </ul>

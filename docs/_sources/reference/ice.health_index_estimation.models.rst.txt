@@ -1,6 +1,25 @@
 ice.health\_index\_estimation.models package
 ============================================
 
+Submodules
+----------
+
+ice.health\_index\_estimation.models.base module
+------------------------------------------------
+
+.. automodule:: ice.health_index_estimation.models.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.health\_index\_estimation.models.mlp module
+-----------------------------------------------
+
+.. automodule:: ice.health_index_estimation.models.mlp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

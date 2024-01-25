@@ -12,6 +12,14 @@ Subpackages
 Submodules
 ----------
 
+ice.fault\_diagnosis.datasets module
+------------------------------------
+
+.. automodule:: ice.fault_diagnosis.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 ice.fault\_diagnosis.metrics module
 -----------------------------------
 

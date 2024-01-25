@@ -1,6 +1,25 @@
 ice.remaining\_useful\_life\_estimation.models package
 ======================================================
 
+Submodules
+----------
+
+ice.remaining\_useful\_life\_estimation.models.base module
+----------------------------------------------------------
+
+.. automodule:: ice.remaining_useful_life_estimation.models.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.remaining\_useful\_life\_estimation.models.mlp module
+---------------------------------------------------------
+
+.. automodule:: ice.remaining_useful_life_estimation.models.mlp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

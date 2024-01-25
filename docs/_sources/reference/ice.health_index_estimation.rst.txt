@@ -9,6 +9,33 @@ Subpackages
 
    ice.health_index_estimation.models
 
+Submodules
+----------
+
+ice.health\_index\_estimation.datasets module
+---------------------------------------------
+
+.. automodule:: ice.health_index_estimation.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.health\_index\_estimation.metrics module
+--------------------------------------------
+
+.. automodule:: ice.health_index_estimation.metrics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.health\_index\_estimation.utils module
+------------------------------------------
+
+.. automodule:: ice.health_index_estimation.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

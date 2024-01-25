@@ -9,6 +9,33 @@ Subpackages
 
    ice.anomaly_detection.models
 
+Submodules
+----------
+
+ice.anomaly\_detection.datasets module
+--------------------------------------
+
+.. automodule:: ice.anomaly_detection.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.anomaly\_detection.metrics module
+-------------------------------------
+
+.. automodule:: ice.anomaly_detection.metrics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ice.anomaly\_detection.utils module
+-----------------------------------
+
+.. automodule:: ice.anomaly_detection.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

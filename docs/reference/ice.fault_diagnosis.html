@@ -49,7 +49,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ice.fault_diagnosis.models package" href="ice.fault_diagnosis.models.html" />
-    <link rel="prev" title="ice.anomaly_detection.models package" href="ice.anomaly_detection.models.html" />
+    <link rel="prev" title="ice.configs package" href="ice.configs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -329,6 +329,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="ice.anomaly_detection.models.html">ice.anomaly_detection.models package</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ice.configs.html">ice.configs package</a></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">ice.fault_diagnosis package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html">ice.fault_diagnosis.models package</a></li>
 </ul>
@@ -422,6 +423,10 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.tcn">ice.fault_diagnosis.models.tcn module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.tcn.TCN"><code class="docutils literal notranslate"><span class="pre">TCN</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.TCN"><code class="docutils literal notranslate"><span class="pre">TCN</span></code></a></li>
@@ -434,6 +439,44 @@ document.write(`
 </section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-ice.fault_diagnosis.datasets">
+<span id="ice-fault-diagnosis-datasets-module"></span><h2>ice.fault_diagnosis.datasets module<a class="headerlink" href="#module-ice.fault_diagnosis.datasets" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.fault_diagnosis.datasets.</span></span><span class="sig-name descname"><span class="pre">FaultDiagnosisReinartzTEP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ice.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
+<p>Dataset of Tennessee Eastman Process based on the paper Reinartz, C.,
+Kulahci, M., &amp; Ravn, O. (2021). An extended Tennessee Eastman simulation
+dataset for fault-detection and decision support systems. Computers &amp;
+Chemical Engineering, 149, 107281.
+<a class="reference external" href="https://web.mit.edu/braatzgroup/links.html">https://web.mit.edu/braatzgroup/links.html</a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP.set_name_public_link">
+<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP.set_name_public_link" title="Permalink to this definition">#</a></dt>
+<dd><p>This method has to be implemented by all children. Set name and public link.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.fault_diagnosis.datasets.</span></span><span class="sig-name descname"><span class="pre">FaultDiagnosisSmallTEP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ice.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
+<p>Cropped version of Tennessee Eastman Process dataset
+Rieth, C. A., Amsel, B. D., Tran, R., &amp; Cook, M. B. (2017).
+Additional Tennessee Eastman Process Simulation Data for
+Anomaly Detection Evaluation (Version V1) [Computer software].
+Harvard Dataverse.
+<a class="reference external" href="https://doi.org/10.7910/DVN/6C3JR1">https://doi.org/10.7910/DVN/6C3JR1</a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP.set_name_public_link">
+<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP.set_name_public_link" title="Permalink to this definition">#</a></dt>
+<dd><p>This method has to be implemented by all children. Set name and public link.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-ice.fault_diagnosis.metrics">
 <span id="ice-fault-diagnosis-metrics-module"></span><h2>ice.fault_diagnosis.metrics module<a class="headerlink" href="#module-ice.fault_diagnosis.metrics" title="Permalink to this heading">#</a></h2>
@@ -547,12 +590,12 @@ number of faults i.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ice.anomaly_detection.models.html"
+       href="ice.configs.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ice.anomaly_detection.models package</p>
+        <p class="prev-next-title">ice.configs package</p>
       </div>
     </a>
     <a class="right-next"
@@ -581,6 +624,17 @@ number of faults i.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.fault_diagnosis.datasets">ice.fault_diagnosis.datasets module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP"><code class="docutils literal notranslate"><span class="pre">FaultDiagnosisReinartzTEP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.datasets.FaultDiagnosisReinartzTEP.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">FaultDiagnosisReinartzTEP.set_name_public_link()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP"><code class="docutils literal notranslate"><span class="pre">FaultDiagnosisSmallTEP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.datasets.FaultDiagnosisSmallTEP.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">FaultDiagnosisSmallTEP.set_name_public_link()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.fault_diagnosis.metrics">ice.fault_diagnosis.metrics module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.metrics.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.metrics.correct_daignosis_rate"><code class="docutils literal notranslate"><span class="pre">correct_daignosis_rate()</span></code></a></li>

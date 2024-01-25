@@ -20,6 +20,14 @@ ice.fault\_diagnosis.models.mlp module
    :undoc-members:
    :show-inheritance:
 
+ice.fault\_diagnosis.models.tcn module
+--------------------------------------
+
+.. automodule:: ice.fault_diagnosis.models.tcn
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
