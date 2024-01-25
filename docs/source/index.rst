@@ -19,7 +19,7 @@ ICE - Industrial Condition Evaluation
 
    .. grid-item-card:: Getting started
 
-      Introduction to the ICE library. Task descriptions. Dataset descriptions.
+      Introduction to the ICE library. Tasks descriptions. Dataset descriptions.
 
       .. button-ref:: start
          :color: info
