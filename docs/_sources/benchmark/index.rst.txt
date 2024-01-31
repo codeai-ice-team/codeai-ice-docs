@@ -9,3 +9,4 @@ Benchmarking
     :caption: Contents:
 
     fd_benchmark_mlp_256
+    ad_benchmark_autorncodermlp_256
