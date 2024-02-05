@@ -6,8 +6,9 @@ Subpackages
 
 .. toctree::
    :maxdepth: 4
+   :hidden:
 
-   ice.anomaly_detection
+   Anomaly detection <ice.anomaly_detection>
    ice.configs
    ice.fault_diagnosis
    ice.health_index_estimation
@@ -24,10 +25,3 @@ ice.base module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
-.. automodule:: ice
-   :members:
-   :undoc-members:
-   :show-inheritance:

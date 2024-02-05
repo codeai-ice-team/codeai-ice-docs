@@ -163,7 +163,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -278,7 +278,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -327,10 +327,9 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tasks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="task_ad.html">Anomaly detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_fd.html">Fault diagnosis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_ad.html">Anomaly detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_rul.html">Remaining useful lifetime</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Health index</a></li>
 </ul>
@@ -407,7 +406,7 @@ document.write(`
 <p>The dataset includes the result of an experiment conducted on a Matsuura machining
 centre (MC-510V) that performed dry, rough milling of cast iron or J45 stainless
 steel workpieces with a six-tooth face mill with KC710 carbide inserts at various
-cutting parameters cite{agogino207milling}. The dataset contains 16 sub-datasets
+cutting parameters [1]. The dataset contains 16 sub-datasets
 in which the cutting depths, feed rates and material types were changed. The sensors
 used to record the milling process are two vibroaccelerometers, two “AE” sensors,
 and two “CTA” current sensors.</p>
@@ -433,18 +432,30 @@ T = C_{v}v_{c}^{k}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T\)</span> is tool life, <span class="math notranslate nohighlight">\(C_{v}\)</span> is the constant related to 1 min tool life,
 <span class="math notranslate nohighlight">\(v_{c}\)</span> is cutting speed, <span class="math notranslate nohighlight">\(k\)</span> is the Taylor exponent.</p>
-<p>We performed an approximation (Fig. ref{mil_data}) of the wear measured at the end of
-each cut using the Nelder Mead method from SciPy library cite{2020SciPy-NMeth}. The
+<p>We performed an approximation (Fig. 1) of the wear measured at the end of
+each cut using the Nelder Mead method from SciPy library [2]. The
 obtained equation parameters characterize the process itself by definition, and the
 character of the curve behavior between the measured points corresponds to the empirically
 verified equation.</p>
-<img alt="../../_images/mil_data.png" class="align-center" src="../../_images/mil_data.png" />
+<figure class="align-center" id="id1">
+<img alt="../../_images/mil_data.png" src="../../_images/mil_data.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Milling dataset. A – Sensor reading examples of the first dataset case, used as input for
+pipeline. B – Target tool wear constructed using the Taylor equation to approximate missing sawtooth
+wear values, used for HI construction.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Next, we transformed the curves characterizing the process and the state of the device
 simultaneously to the device Health Index. To do this, we performed min-max scaling
 (using train subdatasets), where the minimum value of wear is 0 mm, and the maximum
 corresponds to the maximum allowable wear of 1.58 mm, and subtracted the obtained curves
 from 1 to reduce the impact of implicit weighting of healthy states.</p>
-<img alt="../../_images/HI_deviation.png" class="align-center" src="../../_images/HI_deviation.png" />
+<figure class="align-center" id="id2">
+<img alt="../../_images/HI_deviation.png" src="../../_images/HI_deviation.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: Milling dataset targets.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="metrics">
 <h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this heading">#</a></h2>
@@ -460,11 +471,36 @@ equipment <span class="math notranslate nohighlight">\(i\)</span>, <span class="
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<p>The reference results of state-of-the-art papers for the original cite{agogino207milling}
-dataset are presented in table ref{tab:mil-sota-1}.</p>
+<p>The reference results of state-of-the-art papers for the original [1]
+dataset are presented in table 1.</p>
 <p>Since the test dataset involves processes with unknown characteristics, it limits most
 related HI-based work approaches, especially similarity-based techniques, which require
 information about similar process trajectories.</p>
+<table class="table" id="id3">
+<caption><span class="caption-text">Table 1: References for C-Milling dataset, cuts ‘1’, ‘3’, ‘7’ testing, with the original dataset wear target.</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>RMSE (cycles)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MapReduce-based PRFs (2020)</p></td>
+<td><p>0.0531</p></td>
+</tr>
+<tr class="row-odd"><td><p>LS-SVM (2020)</p></td>
+<td><p>0.0254</p></td>
+</tr>
+<tr class="row-even"><td><p>TAKELM (2020)</p></td>
+<td><p>0.0134</p></td>
+</tr>
+<tr class="row-odd"><td><p>LSTM-based (2018)</p></td>
+<td><p>0.0148</p></td>
+</tr>
+</tbody>
+</table>
+<p>[1]   Agogino, A.; Goebel, K. Milling Data Set. NASA Prognostics Data Repository 2007.</p>
+<p>[2]   Virtanen, P. et al. SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. Nature
+Methods 2020, 17, 261–272.</p>
 </section>
 </section>
 

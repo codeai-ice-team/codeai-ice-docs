@@ -1,8 +1,6 @@
-ice.configs package
-===================
+Configs
+=======
 
-Module contents
----------------
 
 .. automodule:: ice.configs
    :members:

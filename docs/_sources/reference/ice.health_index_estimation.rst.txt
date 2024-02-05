@@ -1,45 +1,35 @@
-ice.health\_index\_estimation package
-=====================================
+Health index
+============
 
-Subpackages
------------
+Models
+------
 
 .. toctree::
    :maxdepth: 4
 
    ice.health_index_estimation.models
 
-Submodules
-----------
 
-ice.health\_index\_estimation.datasets module
----------------------------------------------
+HI datasets
+-----------
 
 .. automodule:: ice.health_index_estimation.datasets
    :members:
    :undoc-members:
    :show-inheritance:
 
-ice.health\_index\_estimation.metrics module
---------------------------------------------
+HI metrics
+----------
 
 .. automodule:: ice.health_index_estimation.metrics
    :members:
    :undoc-members:
    :show-inheritance:
 
-ice.health\_index\_estimation.utils module
-------------------------------------------
+HI utils
+--------
 
 .. automodule:: ice.health_index_estimation.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: ice.health_index_estimation
    :members:
    :undoc-members:
    :show-inheritance:

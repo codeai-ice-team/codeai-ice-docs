@@ -46,11 +46,12 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'start/tasks/task_fd';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Remaining useful lifetime" href="task_rul.html" />
-    <link rel="prev" title="Anomaly detection" href="task_ad.html" />
+    <link rel="next" title="Anomaly detection" href="task_ad.html" />
+    <link rel="prev" title="Tasks" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -162,7 +163,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -277,7 +278,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -326,10 +327,9 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Datasets</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tasks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="task_ad.html">Anomaly detection</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Fault diagnosis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_ad.html">Anomaly detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_rul.html">Remaining useful lifetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="task_hi.html">Health index</a></li>
 </ul>
@@ -401,6 +401,87 @@ document.write(`
                   
   <section id="fault-diagnosis">
 <span id="task-fd"></span><h1>Fault diagnosis<a class="headerlink" href="#fault-diagnosis" title="Permalink to this heading">#</a></h1>
+<section id="dataset">
+<span id="tep-dataset"></span><h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
+<p>The Tennessee Eastman Process (TEP) [1], created by Eastman Chemical Company, serves as
+a crucial benchmark in process control and fault detection, mimicking a real
+chemical plant’s operations and faults (see Figure ref{fig:process_diagram}). The
+ICE library uses the extended TEP dataset [cite] which consists of 2800
+independent simulations of a chemical process. Each run lasts 100 hours, and sensor
+data is collected at a frequency of 1 time every 3 minutes. Thus, each run consists
+of 2000 observations. Once started, the process remains in a normal state for 30
+hours, after which it goes to a faulty state. The ratio of the training set to the
+test set is 80/20.</p>
+<p>The dataset contains values of 52 chemical process variables: 41 measured variables
+and 11 manipulated variables. Each moment in time corresponds to a certain state of
+the chemical process. Faulty conditions are marked with a label corresponding to
+the fault number from 1 to 28. All other time points are marked with 0.</p>
+<img alt="../../_images/process_diagram.png" class="align-center" src="../../_images/process_diagram.png" />
+</section>
+<section id="task">
+<h2>Task<a class="headerlink" href="#task" title="Permalink to this heading">#</a></h2>
+<p>In fault diagnosis [2] within the Tennessee Eastman Process (TEP) dataset, the focus
+is on monitoring a set of process variables to define the operational state of the
+chemical process and classify them as normal or as one of 28 faults. The data is a
+multivariate time series consisting of observations <span class="math notranslate nohighlight">\(X_1, X_2 ... X_n\)</span>, where
+<span class="math notranslate nohighlight">\(X_t \in \mathbb{R^d}\)</span> contains the signal values at time point <span class="math notranslate nohighlight">\(t\)</span>.
+Targets are the sequence <span class="math notranslate nohighlight">\(y_1, y_2 ... y_n\)</span>, where <span class="math notranslate nohighlight">\(y_t \in \{0,1\}^m\)</span>
+determines the type of fault at time point <span class="math notranslate nohighlight">\(t\)</span>. Then for a sliding window of
+width <span class="math notranslate nohighlight">\(k\)</span> the function <span class="math notranslate nohighlight">\(f: \mathbb{R}^{d \times k} \rightarrow [0,1]^m\)</span>
+must be founded, and</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+  \begin{aligned}
+  f = \text{argmin}_f \frac{1}{n-k} \sum_{t=k}^{n} l(y_t,f(X_{t-k+1},...,X_t)),
+  \end{aligned}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(l\)</span> is a loss function. The function <span class="math notranslate nohighlight">\(f\)</span> can be approximated using
+machine learning methods.</p>
+</section>
+<section id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this heading">#</a></h2>
+<p>In fault diagnosis, several metrics are commonly used to evaluate the performance
+of models. These metrics help in understanding how well the model is classifying
+fault types (true positives) and avoiding false alarms (false positives). The choice
+of metrics often depends on the specific requirements of the task, such as the
+importance of correct diagnosis versus the cost of false alarms. Common
+metrics include:</p>
+<p><strong>Accuracy</strong> measures the overall correctness of the model, calculated as the
+number of correct predictions divided by the total number of cases.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+  \text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Number of Cases}}
+\end{equation}\]</div>
+<p><strong>Correct Diagnosis Rate (CDR)</strong> is the number of correctly predicted faulty
+conditions devided by the number of detected faulty conditions.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+  \text{CDR} = \frac{\text{Correctly Diagnosed Faults}}{\text{Correctly Detected Faults}}
+\end{equation}\]</div>
+<p><strong>Recall (True Positive Rate, TPR)</strong> measures the proportion of actual positives
+(anomalies) correctly identified as such (true positives). It is particularly
+important in scenarios where missing an anomaly can have serious consequences.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+  \text{TPR} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+\end{equation}\]</div>
+<p><strong>False Positive Rate (FPR)</strong> measures the proportion of negative instances that
+are incorrectly classified as positive (anomalies). A lower FPR is desirable as it
+indicates fewer false alarms.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+  \text{FPR} = \frac{\text{False Positives}}{\text{False Positives} + \text{True Negatives}}
+\end{equation}\]</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>[1]   Reinartz, Christopher, Murat Kulahci, and Ole Ravn. “An extended Tennessee
+Eastman simulation dataset for fault-detection and decision support systems.”
+Computers &amp; Chemical Engineering 149 (2021): 107281</p>
+<p>[2]   Abid, Anam, Muhammad Tahir Khan, and Javaid Iqbal. “A review on fault
+detection and diagnosis techniques: basics and beyond.” Artificial Intelligence
+Review 54 (2021): 3639-3664.</p>
+</section>
 </section>
 
 
@@ -414,20 +495,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="task_ad.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Anomaly detection</p>
+        <p class="prev-next-title">Tasks</p>
       </div>
     </a>
     <a class="right-next"
-       href="task_rul.html"
+       href="task_ad.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Remaining useful lifetime</p>
+        <p class="prev-next-title">Anomaly detection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -439,6 +520,19 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">

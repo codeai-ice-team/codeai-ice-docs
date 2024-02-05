@@ -1,45 +1,35 @@
-ice.remaining\_useful\_life\_estimation package
-===============================================
+Remaining useful life
+=====================
 
-Subpackages
------------
+Models
+------
 
 .. toctree::
    :maxdepth: 4
 
-   ice.remaining_useful_life_estimation.models
+   Models<ice.remaining_useful_life_estimation.models>
 
-Submodules
-----------
 
-ice.remaining\_useful\_life\_estimation.datasets module
--------------------------------------------------------
+RUL datasets
+------------
 
 .. automodule:: ice.remaining_useful_life_estimation.datasets
    :members:
    :undoc-members:
    :show-inheritance:
 
-ice.remaining\_useful\_life\_estimation.metrics module
-------------------------------------------------------
+RUL metrics
+-----------
 
 .. automodule:: ice.remaining_useful_life_estimation.metrics
    :members:
    :undoc-members:
    :show-inheritance:
 
-ice.remaining\_useful\_life\_estimation.utils module
-----------------------------------------------------
+RUL utils
+---------
 
 .. automodule:: ice.remaining_useful_life_estimation.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: ice.remaining_useful_life_estimation
    :members:
    :undoc-members:
    :show-inheritance:

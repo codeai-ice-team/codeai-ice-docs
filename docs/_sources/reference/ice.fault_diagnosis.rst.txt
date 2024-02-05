@@ -1,45 +1,36 @@
-ice.fault\_diagnosis package
-============================
+Fault diagnosis
+===============
 
-Subpackages
------------
+Models
+------
 
 .. toctree::
    :maxdepth: 4
 
-   ice.fault_diagnosis.models
+   Models<ice.fault_diagnosis.models>
 
-Submodules
-----------
 
-ice.fault\_diagnosis.datasets module
-------------------------------------
+FD datasets
+-----------
 
 .. automodule:: ice.fault_diagnosis.datasets
    :members:
    :undoc-members:
    :show-inheritance:
 
-ice.fault\_diagnosis.metrics module
------------------------------------
+FD metrics
+----------
 
 .. automodule:: ice.fault_diagnosis.metrics
    :members:
    :undoc-members:
    :show-inheritance:
 
-ice.fault\_diagnosis.utils module
----------------------------------
+FD utils
+--------
 
 .. automodule:: ice.fault_diagnosis.utils
    :members:
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
-.. automodule:: ice.fault_diagnosis
-   :members:
-   :undoc-members:
-   :show-inheritance:

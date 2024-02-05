@@ -20,10 +20,3 @@ ice.anomaly\_detection.models.base module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
-.. automodule:: ice.anomaly_detection.models
-   :members:
-   :undoc-members:
-   :show-inheritance:
