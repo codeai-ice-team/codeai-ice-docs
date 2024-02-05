@@ -7,7 +7,7 @@ Models
 .. toctree::
    :maxdepth: 4
 
-   ice.health_index_estimation.models
+   Models<ice.health_index_estimation.models>
 
 
 HI datasets

@@ -1,22 +1,20 @@
-ice.anomaly\_detection.models package
-=====================================
+Anomaly detection models
+========================
 
-Submodules
-----------
+BaseAnomalyDetection
+--------------------
 
-ice.anomaly\_detection.models.autoencoder module
-------------------------------------------------
+.. automodule:: ice.anomaly_detection.models.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+AutoEncoderMLP
+--------------
 
 .. automodule:: ice.anomaly_detection.models.autoencoder
    :members:
    :undoc-members:
    :show-inheritance:
 
-ice.anomaly\_detection.models.base module
------------------------------------------
-
-.. automodule:: ice.anomaly_detection.models.base
-   :members:
-   :undoc-members:
-   :show-inheritance:
 

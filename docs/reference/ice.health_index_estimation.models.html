@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>ice.health_index_estimation.models package &#8212; ICE  documentation</title>
+    <title>Remaining useful life models &#8212; ICE  documentation</title>
   
   
   
@@ -338,7 +338,7 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="ice.health_index_estimation.html">Health index</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ice.health_index_estimation.models package</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ice.configs.html">Configs</a></li>
@@ -385,7 +385,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="ice.health_index_estimation.html" class="nav-link">Health index</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">ice.health_index_estimation.models package</li>
+    <li class="breadcrumb-item active" aria-current="page">Remaining useful life models</li>
   </ul>
 </nav>
 </div>
@@ -402,13 +402,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="ice-health-index-estimation-models-package">
-<h1>ice.health_index_estimation.models package<a class="headerlink" href="#ice-health-index-estimation-models-package" title="Permalink to this heading">#</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
-</section>
+  <section id="remaining-useful-life-models">
+<h1>Remaining useful life models<a class="headerlink" href="#remaining-useful-life-models" title="Permalink to this heading">#</a></h1>
 <section id="module-ice.health_index_estimation.models.base">
-<span id="ice-health-index-estimation-models-base-module"></span><h2>ice.health_index_estimation.models.base module<a class="headerlink" href="#module-ice.health_index_estimation.models.base" title="Permalink to this heading">#</a></h2>
+<span id="baseremainingusefullifeestimation"></span><h2>BaseRemainingUsefulLifeEstimation<a class="headerlink" href="#module-ice.health_index_estimation.models.base" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ice.health_index_estimation.models.base.BaseHealthIndexEstimation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.health_index_estimation.models.base.</span></span><span class="sig-name descname"><span class="pre">BaseHealthIndexEstimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.models.base.BaseHealthIndexEstimation" title="Permalink to this definition">#</a></dt>
@@ -445,7 +442,7 @@ columns: <cite>run_id</cite> and <cite>sample</cite>.</p></li>
 
 </section>
 <section id="module-ice.health_index_estimation.models.mlp">
-<span id="ice-health-index-estimation-models-mlp-module"></span><h2>ice.health_index_estimation.models.mlp module<a class="headerlink" href="#module-ice.health_index_estimation.models.mlp" title="Permalink to this heading">#</a></h2>
+<span id="mlp"></span><h2>MLP<a class="headerlink" href="#module-ice.health_index_estimation.models.mlp" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ice.health_index_estimation.models.mlp.MLP">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.health_index_estimation.models.mlp.</span></span><span class="sig-name descname"><span class="pre">MLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mlp_fault_diagnosis'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.models.mlp.MLP" title="Permalink to this definition">#</a></dt>
@@ -502,15 +499,14 @@ sensors.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.models.base">ice.health_index_estimation.models.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.models.base">BaseRemainingUsefulLifeEstimation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.models.base.BaseHealthIndexEstimation"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.models.base.BaseHealthIndexEstimation.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation.evaluate()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.models.mlp">ice.health_index_estimation.models.mlp module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.models.mlp">MLP</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a></li>
 </ul>
 </li>

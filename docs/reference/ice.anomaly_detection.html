@@ -49,8 +49,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/ice.anomaly_detection';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ice.anomaly_detection.models package" href="ice.anomaly_detection.models.html" />
-    <link rel="prev" title="ice.fault_diagnosis.models package" href="ice.fault_diagnosis.models.html" />
+    <link rel="next" title="Anomaly detection models" href="ice.anomaly_detection.models.html" />
+    <link rel="prev" title="Fault diagnosis models" href="ice.fault_diagnosis.models.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -338,7 +338,7 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.health_index_estimation.html">Health index</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html">ice.health_index_estimation.models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html">Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ice.configs.html">Configs</a></li>
@@ -406,20 +406,19 @@ document.write(`
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ice.anomaly_detection.models.html">Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.autoencoder">ice.anomaly_detection.models.autoencoder module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.base">BaseAnomalyDetection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.evaluate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.fit"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.autoencoder">AutoEncoderMLP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP"><code class="docutils literal notranslate"><span class="pre">AutoEncoderMLP</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP.forward"><code class="docutils literal notranslate"><span class="pre">MLP.forward()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP.training"><code class="docutils literal notranslate"><span class="pre">MLP.training</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.base">ice.anomaly_detection.models.base module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.evaluate()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.fit"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.fit()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -518,7 +517,7 @@ the number of examples.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ice.fault_diagnosis.models package</p>
+        <p class="prev-next-title">Fault diagnosis models</p>
       </div>
     </a>
     <a class="right-next"
@@ -526,7 +525,7 @@ the number of examples.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ice.anomaly_detection.models package</p>
+        <p class="prev-next-title">Anomaly detection models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
