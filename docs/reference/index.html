@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Fault diagnosis" href="ice.fault_diagnosis.html" />
+    <link rel="next" title="Base modules" href="ice.base.html" />
     <link rel="prev" title="Advanced materials" href="../advanced/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -325,6 +325,7 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ice.base.html">Base modules</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.fault_diagnosis.html">Fault Diagnosis</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html">Models</a></li>
 </ul>
@@ -399,144 +400,46 @@ document.write(`
   <section id="api-reference">
 <span id="reference"></span><h1>API reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ice.base.html">Base modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.base.html#ice.base.BaseDataset"><code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.base.html#ice.base.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ice.fault_diagnosis.html">Fault Diagnosis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.html#module-ice.fault_diagnosis.datasets">FD datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.html#module-ice.fault_diagnosis.metrics">FD metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.html#module-ice.fault_diagnosis.utils">FD utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ice.anomaly_detection.html">Anomaly detection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.html#module-ice.anomaly_detection.datasets">AD datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.html#module-ice.anomaly_detection.metrics">AD metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.html#module-ice.anomaly_detection.utils">AD utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ice.remaining_useful_life_estimation.html">Remaining useful lifetime</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.datasets">RUL datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.metrics">RUL metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.html#module-ice.remaining_useful_life_estimation.utils">RUL utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ice.health_index_estimation.html">Health index</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.html#module-ice.health_index_estimation.datasets">HI datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.html#module-ice.health_index_estimation.metrics">HI metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.html#module-ice.health_index_estimation.utils">HI utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ice.configs.html">Configs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.configs.html#ice.configs.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+</ul>
+</li>
+</ul>
 </div>
-<section id="module-ice.base">
-<span id="base-modules"></span><h2>Base modules<a class="headerlink" href="#module-ice.base" title="Permalink to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.base.BaseDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.base.</span></span><span class="sig-name descname"><span class="pre">BaseDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.base.BaseDataset" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
-<p>Base class for datasets.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.base.BaseDataset.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.base.BaseDataset.__init__" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_chunks</strong> (<em>int</em>) – If given, download only num_chunks chunks of data.
-Used for testing purposes.</p></li>
-<li><p><strong>force_download</strong> (<em>bool</em>) – If True, download the dataset even if it exists.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.base.BaseDataset.set_name_public_link">
-<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ice.base.BaseDataset.set_name_public_link" title="Permalink to this definition">#</a></dt>
-<dd><p>This method has to be implemented by all children. Set name and public link.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.base.BaseModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.base.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.base.BaseModel" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
-<p>Base class for all models.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.base.BaseModel.__init__">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.base.BaseModel.__init__" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>batch_size</strong> (<em>int</em>) – The batch size to train the model.</p></li>
-<li><p><strong>lr</strong> (<em>float</em>) – The larning rate to train the model.</p></li>
-<li><p><strong>num_epochs</strong> (<em>float</em>) – The number of epochs to train the model.</p></li>
-<li><p><strong>device</strong> (<em>str</em>) – The name of a device to train the model. <cite>cpu</cite> and
-<cite>cuda</cite> are possible.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em>) – If true, show the progress bar in training.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – The name of the model for artifact storing.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.base.BaseModel.evaluate">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ice.base.BaseModel.evaluate" title="Permalink to this definition">#</a></dt>
-<dd><p>This method has to be implemented by all children. Evaluate the
-metrics. Docstring has to be rewritten so that all metrics are clearly
-described.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – A dataframe with sensor data. Index has
-two columns: <cite>run_id</cite> and <cite>sample</cite>. All other columns a value of
-sensors.</p></li>
-<li><p><strong>target</strong> (<em>pandas.Series</em>) – A series with target values. Indes has two
-columns: <cite>run_id</cite> and <cite>sample</cite>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>A dictionary with metrics where keys are names of metrics and</dt><dd><p>values are values of metrics.</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.base.BaseModel.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.base.BaseModel.fit" title="Permalink to this definition">#</a></dt>
-<dd><p>Fit (train) the model by a given dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – A dataframe with sensor data. Index has
-two columns: <cite>run_id</cite> and <cite>sample</cite>. All other columns a value of
-sensors.</p></li>
-<li><p><strong>target</strong> (<em>pandas.Series</em>) – A series with target values. Indes has two
-columns: <cite>run_id</cite> and <cite>sample</cite>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.base.BaseModel.from_config">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ice.configs.html#ice.configs.Config" title="ice.configs.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.base.BaseModel.from_config" title="Permalink to this definition">#</a></dt>
-<dd><p>Create instance of the model class with parameters from config.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>cfg</strong> (<a class="reference internal" href="ice.configs.html#ice.configs.Config" title="ice.configs.Config"><em>Config</em></a>) – A config with model’s parameters.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Instance of BaseModel child class initialized with parameters from config.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ice.base.BaseModel" title="ice.base.BaseModel">BaseModel</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.base.BaseModel.predict">
-<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#ice.base.BaseModel.predict" title="Permalink to this definition">#</a></dt>
-<dd><p>Make a prediction for a given batch of samples.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>sample</strong> (<em>torch.Tensor</em>) – A tensor of the shape (B, L, C) where
-B is the batch size, L is the sequence length, C is the number
-of sensors.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tensor with predictions of the shape (B,).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>torch.Tensor</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
 </section>
 
 
@@ -559,11 +462,11 @@ of sensors.</p>
       </div>
     </a>
     <a class="right-next"
-       href="ice.fault_diagnosis.html"
+       href="ice.base.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fault diagnosis</p>
+        <p class="prev-next-title">Base modules</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -575,31 +478,6 @@ of sensors.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.base">Base modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseDataset"><code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseDataset.__init__"><code class="docutils literal notranslate"><span class="pre">BaseDataset.__init__()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseDataset.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">BaseDataset.set_name_public_link()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.__init__"><code class="docutils literal notranslate"><span class="pre">BaseModel.__init__()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseModel.evaluate()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.fit"><code class="docutils literal notranslate"><span class="pre">BaseModel.fit()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.from_config"><code class="docutils literal notranslate"><span class="pre">BaseModel.from_config()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.predict"><code class="docutils literal notranslate"><span class="pre">BaseModel.predict()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
