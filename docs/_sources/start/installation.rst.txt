@@ -4,17 +4,8 @@
 Installation
 ------------
 
-Go to this folder and run
+ICE library can be installed using pip as follows:
 
 ::
 
-    pip install -e .
-
-Testing
-"""""""
-
-Go to this folder and run
-
-::
-    
-    pytest ice/tests
+    pip install git+https://github.com/codeai-ice-team/codeai-ice.git

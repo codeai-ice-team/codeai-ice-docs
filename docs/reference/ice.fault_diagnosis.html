@@ -408,17 +408,24 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="ice.fault_diagnosis.models.html">Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.base">BaseFaultDiagnosis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.base.BaseFaultDiagnosis"><code class="docutils literal notranslate"><span class="pre">BaseFaultDiagnosis</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.base.BaseFaultDiagnosis.__init__"><code class="docutils literal notranslate"><span class="pre">BaseFaultDiagnosis.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.base.BaseFaultDiagnosis.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseFaultDiagnosis.evaluate()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.mlp">MLP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.mlp.MLP.__init__"><code class="docutils literal notranslate"><span class="pre">MLP.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html#module-ice.fault_diagnosis.models.tcn">TCN</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.tcn.TCN"><code class="docutils literal notranslate"><span class="pre">TCN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.tcn.TCN"><code class="docutils literal notranslate"><span class="pre">TCN</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.fault_diagnosis.models.html#ice.fault_diagnosis.models.tcn.TCN.__init__"><code class="docutils literal notranslate"><span class="pre">TCN.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -557,6 +564,11 @@ number of faults i.</p>
 <dt class="sig sig-object py" id="ice.fault_diagnosis.utils.SlidingWindowDataset">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.fault_diagnosis.utils.</span></span><span class="sig-name descname"><span class="pre">SlidingWindowDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.utils.SlidingWindowDataset" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.utils.SlidingWindowDataset.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.utils.SlidingWindowDataset.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -625,7 +637,10 @@ number of faults i.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.fault_diagnosis.utils">FD utils</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.utils.SlidingWindowDataset.__init__"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

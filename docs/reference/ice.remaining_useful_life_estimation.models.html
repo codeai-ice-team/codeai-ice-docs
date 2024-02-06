@@ -412,6 +412,26 @@ document.write(`
 <dd><p>Bases: <a class="reference internal" href="index.html#ice.base.BaseModel" title="ice.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Base class for all RUL models.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation.__init__">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_size</strong> (<em>int</em>) – The window size to train the model.</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – The time interval between first points of consecutive sliding windows.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – The batch size to train the model.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – The learning rate to train the model.</p></li>
+<li><p><strong>num_epochs</strong> (<em>float</em>) – The number of epochs to train the model.</p></li>
+<li><p><strong>device</strong> (<em>str</em>) – The name of a device to train the model. <cite>cpu</cite> and
+<cite>cuda</cite> are possible.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If true, show the progress bar in training.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the model for artifact storing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation.evaluate">
 <span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation.evaluate" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluate the metrics: rmse, c-mapss score.</p>
@@ -451,6 +471,27 @@ columns: <cite>run_id</cite> and <cite>sample</cite>.</p></li>
 ReLU activation. Each sample is reshaped to a vector (B, L, C) -&gt; (B, L * C)
 where B is the batch size, L is the sequence length, C is the number of
 sensors.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.models.mlp.MLP.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mlp_cmapss_rul'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.remaining_useful_life_estimation.models.mlp.MLP.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_size</strong> (<em>int</em>) – The window size to train the model.</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – The time interval between first points of consecutive sliding windows.</p></li>
+<li><p><strong>hidden_dim</strong> (<em>int</em>) – The dimensionality of the hidden layer in MLP.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – The batch size to train the model.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – The larning rate to train the model.</p></li>
+<li><p><strong>num_epochs</strong> (<em>float</em>) – The number of epochs to train the model.</p></li>
+<li><p><strong>device</strong> (<em>str</em>) – The name of a device to train the model. <cite>cpu</cite> and
+<cite>cuda</cite> are possible.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If true, show the progress bar in training.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the model for artifact storing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -501,13 +542,17 @@ sensors.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.remaining_useful_life_estimation.models.base">BaseHealthIndexEstimation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation"><code class="docutils literal notranslate"><span class="pre">BaseRemainingUsefulLifeEstimation</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation.__init__"><code class="docutils literal notranslate"><span class="pre">BaseRemainingUsefulLifeEstimation.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.models.base.BaseRemainingUsefulLifeEstimation.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseRemainingUsefulLifeEstimation.evaluate()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.remaining_useful_life_estimation.models.mlp">MLP</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.models.mlp.MLP.__init__"><code class="docutils literal notranslate"><span class="pre">MLP.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

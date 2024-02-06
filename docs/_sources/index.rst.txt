@@ -12,6 +12,8 @@ ICE - Industrial Condition Evaluation
    Custom classes <custom/index>
    Benchmarking <benchmark/index>
 
+Python library for training, evaluating, using deep learning for industrial monitoring tasks.
+
 .. grid:: 1 2 3 4
 
    .. grid-item-card:: Getting started

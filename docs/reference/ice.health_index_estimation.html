@@ -408,13 +408,17 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="ice.health_index_estimation.models.html">Models</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.base">BaseRemainingUsefulLifeEstimation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation.__init__"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation.evaluate()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.mlp">MLP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.mlp.MLP.__init__"><code class="docutils literal notranslate"><span class="pre">MLP.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -468,6 +472,11 @@ document.write(`
 <dt class="sig sig-object py" id="ice.health_index_estimation.utils.SlidingWindowDataset">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.health_index_estimation.utils.</span></span><span class="sig-name descname"><span class="pre">SlidingWindowDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.utils.SlidingWindowDataset" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.health_index_estimation.utils.SlidingWindowDataset.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.utils.SlidingWindowDataset.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -529,7 +538,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.utils">HI utils</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.utils.SlidingWindowDataset.__init__"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

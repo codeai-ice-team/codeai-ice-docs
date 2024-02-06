@@ -412,6 +412,25 @@ document.write(`
 <dd><p>Bases: <a class="reference internal" href="index.html#ice.base.BaseModel" title="ice.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Base class for all fault diagnosis models.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.models.base.BaseFaultDiagnosis.__init__">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.models.base.BaseFaultDiagnosis.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_size</strong> (<em>int</em>) – The window size to train the model.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – The batch size to train the model.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – The learning rate to train the model.</p></li>
+<li><p><strong>num_epochs</strong> (<em>float</em>) – The number of epochs to train the model.</p></li>
+<li><p><strong>device</strong> (<em>str</em>) – The name of a device to train the model. <cite>cpu</cite> and
+<cite>cuda</cite> are possible.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If true, show the progress bar in training.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the model for artifact storing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="ice.fault_diagnosis.models.base.BaseFaultDiagnosis.evaluate">
 <span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ice.fault_diagnosis.models.base.BaseFaultDiagnosis.evaluate" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluate the metrics: accuracy.</p>
@@ -451,6 +470,26 @@ columns: <cite>run_id</cite> and <cite>sample</cite>.</p></li>
 ReLU activation. Each sample is reshaped to a vector (B, L, C) -&gt; (B, L * C)
 where B is the batch size, L is the sequence length, C is the number of
 sensors.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.models.mlp.MLP.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mlp_fault_diagnosis'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.models.mlp.MLP.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_size</strong> (<em>int</em>) – The window size to train the model.</p></li>
+<li><p><strong>hidden_dim</strong> (<em>int</em>) – The dimensionality of the hidden layer in MLP.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – The batch size to train the model.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – The larning rate to train the model.</p></li>
+<li><p><strong>num_epochs</strong> (<em>float</em>) – The number of epochs to train the model.</p></li>
+<li><p><strong>device</strong> (<em>str</em>) – The name of a device to train the model. <cite>cpu</cite> and
+<cite>cuda</cite> are possible.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If true, show the progress bar in training.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the model for artifact storing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -464,6 +503,30 @@ sensors.</p>
 implementation is based on the paper Lomov, Ildar, et al. “Fault detection
 in Tennessee Eastman process with temporal deep learning models.” Journal
 of Industrial Information Integration 23 (2021): 100216.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.fault_diagnosis.models.tcn.TCN.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dilation_base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tcn_fault_diagnosis'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.fault_diagnosis.models.tcn.TCN.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_size</strong> (<em>int</em>) – The window size to train the model.</p></li>
+<li><p><strong>hidden_dim</strong> (<em>int</em>) – The number of channels in the hidden layers of TCN.</p></li>
+<li><p><strong>kernel_size</strong> (<em>int</em>) – The kernel size of the residual blocks of TCN.</p></li>
+<li><p><strong>num_layers</strong> (<em>int</em>) – The number of residual blocks in TCN.</p></li>
+<li><p><strong>dilation_base</strong> (<em>int</em>) – The base of the exponent that will determine the dilation on every layer.</p></li>
+<li><p><strong>dropout</strong> (<em>float</em>) – The rate of dropout in training of TCN.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – The batch size to train the model.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – The larning rate to train the model.</p></li>
+<li><p><strong>num_epochs</strong> (<em>float</em>) – The number of epochs to train the model.</p></li>
+<li><p><strong>device</strong> (<em>str</em>) – The name of a device to train the model. <cite>cpu</cite> and
+<cite>cuda</cite> are possible.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – If true, show the progress bar in training.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the model for artifact storing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -514,17 +577,24 @@ of Industrial Information Integration 23 (2021): 100216.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.fault_diagnosis.models.base">BaseFaultDiagnosis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.base.BaseFaultDiagnosis"><code class="docutils literal notranslate"><span class="pre">BaseFaultDiagnosis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.base.BaseFaultDiagnosis.__init__"><code class="docutils literal notranslate"><span class="pre">BaseFaultDiagnosis.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.base.BaseFaultDiagnosis.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseFaultDiagnosis.evaluate()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.fault_diagnosis.models.mlp">MLP</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.mlp.MLP.__init__"><code class="docutils literal notranslate"><span class="pre">MLP.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.fault_diagnosis.models.tcn">TCN</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.tcn.TCN"><code class="docutils literal notranslate"><span class="pre">TCN</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.tcn.TCN"><code class="docutils literal notranslate"><span class="pre">TCN</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.fault_diagnosis.models.tcn.TCN.__init__"><code class="docutils literal notranslate"><span class="pre">TCN.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

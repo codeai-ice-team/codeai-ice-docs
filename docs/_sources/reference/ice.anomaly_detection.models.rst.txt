@@ -12,7 +12,9 @@ BaseAnomalyDetection
 AutoEncoderMLP
 --------------
 
-.. automodule:: ice.anomaly_detection.models.autoencoder
+.. currentmodule:: ice.anomaly_detection.models.autoencoder
+
+.. autoclass:: AutoEncoderMLP
    :members:
    :undoc-members:
    :show-inheritance:
