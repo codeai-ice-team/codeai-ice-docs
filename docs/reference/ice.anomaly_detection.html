@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Anomaly detection models" href="ice.anomaly_detection.models.html" />
-    <link rel="prev" title="Fault diagnosis models" href="ice.fault_diagnosis.models.html" />
+    <link rel="prev" title="Fault diagnosis utils" href="ice.fault_diagnosis.utils.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -328,18 +328,30 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="ice.base.html">Base modules</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.fault_diagnosis.html">Fault Diagnosis</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Anomaly detection</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.remaining_useful_life_estimation.html">Remaining useful lifetime</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.health_index_estimation.html">Health index</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ice.configs.html">Configs</a></li>
@@ -402,136 +414,28 @@ document.write(`
                   
   <section id="anomaly-detection">
 <h1>Anomaly detection<a class="headerlink" href="#anomaly-detection" title="Permalink to this heading">#</a></h1>
-<section id="models">
-<h2>Models<a class="headerlink" href="#models" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ice.anomaly_detection.models.html">Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.base">BaseAnomalyDetection</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.__init__"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.evaluate()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.base.BaseAnomalyDetection.fit"><code class="docutils literal notranslate"><span class="pre">BaseAnomalyDetection.fit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.base">BaseAnomalyDetection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#module-ice.anomaly_detection.models.autoencoder">AutoEncoderMLP</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ice.anomaly_detection.datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.datasets.html#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionReinartzTEP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.datasets.html#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionSmallTEP</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html#autoencodermlp">AutoEncoderMLP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP"><code class="docutils literal notranslate"><span class="pre">AutoEncoderMLP</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP.__init__"><code class="docutils literal notranslate"><span class="pre">AutoEncoderMLP.__init__()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ice.anomaly_detection.metrics.html">Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.metrics.html#ice.anomaly_detection.metrics.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="ice.anomaly_detection.utils.html">Utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.utils.html#ice.anomaly_detection.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="module-ice.anomaly_detection.datasets">
-<span id="ad-datasets"></span><h2>AD datasets<a class="headerlink" href="#module-ice.anomaly_detection.datasets" title="Permalink to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.datasets.</span></span><span class="sig-name descname"><span class="pre">AnomalyDetectionReinartzTEP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="ice.base.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
-<p>Dataset of Tennessee Eastman Process based on the paper Reinartz, C.,
-Kulahci, M., &amp; Ravn, O. (2021). An extended Tennessee Eastman simulation
-dataset for fault-detection and decision support systems. Computers &amp;
-Chemical Engineering, 149, 107281.
-<a class="reference external" href="https://web.mit.edu/braatzgroup/links.html">https://web.mit.edu/braatzgroup/links.html</a>.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.__init__" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_chunks</strong> (<em>int</em>) – If given, download only num_chunks chunks of data.
-Used for testing purposes.</p></li>
-<li><p><strong>force_download</strong> (<em>bool</em>) – If True, download the dataset even if it exists.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.set_name_public_link">
-<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.set_name_public_link" title="Permalink to this definition">#</a></dt>
-<dd><p>This method has to be implemented by all children. Set name and public link.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.datasets.</span></span><span class="sig-name descname"><span class="pre">AnomalyDetectionSmallTEP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="ice.base.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
-<p>Cropped version of Tennessee Eastman Process dataset
-Rieth, C. A., Amsel, B. D., Tran, R., &amp; Cook, M. B. (2017).
-Additional Tennessee Eastman Process Simulation Data for
-Anomaly Detection Evaluation (Version V1) [Computer software].
-Harvard Dataverse.
-<a class="reference external" href="https://doi.org/10.7910/DVN/6C3JR1">https://doi.org/10.7910/DVN/6C3JR1</a>.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP.__init__" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_chunks</strong> (<em>int</em>) – If given, download only num_chunks chunks of data.
-Used for testing purposes.</p></li>
-<li><p><strong>force_download</strong> (<em>bool</em>) – If True, download the dataset even if it exists.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP.set_name_public_link">
-<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP.set_name_public_link" title="Permalink to this definition">#</a></dt>
-<dd><p>This method has to be implemented by all children. Set name and public link.</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ice.anomaly_detection.metrics">
-<span id="ad-metrics"></span><h2>AD metrics<a class="headerlink" href="#module-ice.anomaly_detection.metrics" title="Permalink to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="ice.anomaly_detection.metrics.accuracy">
-<span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.metrics.</span></span><span class="sig-name descname"><span class="pre">accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#ice.anomaly_detection.metrics.accuracy" title="Permalink to this definition">#</a></dt>
-<dd><p>Accuracy of the classification is the number of true positives divided by
-the number of examples.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pred</strong> (<em>list</em>) – predictions.</p></li>
-<li><p><strong>target</strong> (<em>list</em>) – target values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>accuracy</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="module-ice.anomaly_detection.utils">
-<span id="ad-utils"></span><h2>AD utils<a class="headerlink" href="#module-ice.anomaly_detection.utils" title="Permalink to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.anomaly_detection.utils.SlidingWindowDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.utils.</span></span><span class="sig-name descname"><span class="pre">SlidingWindowDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Series</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.utils.SlidingWindowDataset" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.anomaly_detection.utils.SlidingWindowDataset.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Series</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.anomaly_detection.utils.SlidingWindowDataset.__init__" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
 </section>
 
 
@@ -545,12 +449,12 @@ the number of examples.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ice.fault_diagnosis.models.html"
+       href="ice.fault_diagnosis.utils.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Fault diagnosis models</p>
+        <p class="prev-next-title">Fault diagnosis utils</p>
       </div>
     </a>
     <a class="right-next"
@@ -570,40 +474,6 @@ the number of examples.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.anomaly_detection.datasets">AD datasets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionReinartzTEP</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.__init__"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionReinartzTEP.__init__()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionReinartzTEP.set_name_public_link()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionSmallTEP</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP.__init__"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionSmallTEP.__init__()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.datasets.AnomalyDetectionSmallTEP.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">AnomalyDetectionSmallTEP.set_name_public_link()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.anomaly_detection.metrics">AD metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.metrics.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.anomaly_detection.utils">AD utils</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.utils.SlidingWindowDataset.__init__"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset.__init__()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">

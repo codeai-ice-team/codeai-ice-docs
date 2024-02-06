@@ -1,35 +1,10 @@
-Health index
-============
-
-Models
-------
+Health index estimation
+=======================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    Models<ice.health_index_estimation.models>
-
-
-HI datasets
------------
-
-.. automodule:: ice.health_index_estimation.datasets
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-HI metrics
-----------
-
-.. automodule:: ice.health_index_estimation.metrics
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-HI utils
---------
-
-.. automodule:: ice.health_index_estimation.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   Datasets<ice.health_index_estimation.datasets>
+   Metrics<ice.health_index_estimation.metrics>
+   Utils<ice.health_index_estimation.utils>

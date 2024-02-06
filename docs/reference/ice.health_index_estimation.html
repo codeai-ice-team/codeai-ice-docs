@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Health index &#8212; ICE  documentation</title>
+    <title>Health index estimation &#8212; ICE  documentation</title>
   
   
   
@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Remaining useful life models" href="ice.health_index_estimation.models.html" />
-    <link rel="prev" title="Health index models" href="ice.remaining_useful_life_estimation.models.html" />
+    <link rel="prev" title="Remaining useful life utils" href="ice.remaining_useful_life_estimation.utils.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -328,18 +328,30 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="ice.base.html">Base modules</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.fault_diagnosis.html">Fault Diagnosis</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.anomaly_detection.html">Anomaly detection</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.remaining_useful_life_estimation.html">Remaining useful lifetime</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Health index</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ice.configs.html">Configs</a></li>
@@ -383,7 +395,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">API reference</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Health index</li>
+    <li class="breadcrumb-item active" aria-current="page">Health index estimation</li>
   </ul>
 </nav>
 </div>
@@ -400,87 +412,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="health-index">
-<h1>Health index<a class="headerlink" href="#health-index" title="Permalink to this heading">#</a></h1>
-<section id="models">
-<h2>Models<a class="headerlink" href="#models" title="Permalink to this heading">#</a></h2>
+  <section id="health-index-estimation">
+<h1>Health index estimation<a class="headerlink" href="#health-index-estimation" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ice.health_index_estimation.models.html">Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.base">BaseRemainingUsefulLifeEstimation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation.__init__"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.base.BaseHealthIndexEstimation.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseHealthIndexEstimation.evaluate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.base">BaseRemainingUsefulLifeEstimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.mlp">MLP</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ice.health_index_estimation.datasets.html">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.datasets.html#ice.health_index_estimation.datasets.Milling"><code class="docutils literal notranslate"><span class="pre">Milling</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html#module-ice.health_index_estimation.models.mlp">MLP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.mlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ice.health_index_estimation.models.html#ice.health_index_estimation.models.mlp.MLP.__init__"><code class="docutils literal notranslate"><span class="pre">MLP.__init__()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ice.health_index_estimation.metrics.html">Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.metrics.html#ice.health_index_estimation.metrics.mse"><code class="docutils literal notranslate"><span class="pre">mse()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="ice.health_index_estimation.utils.html">Utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.utils.html#ice.health_index_estimation.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="module-ice.health_index_estimation.datasets">
-<span id="hi-datasets"></span><h2>HI datasets<a class="headerlink" href="#module-ice.health_index_estimation.datasets" title="Permalink to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.health_index_estimation.datasets.Milling">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.health_index_estimation.datasets.</span></span><span class="sig-name descname"><span class="pre">Milling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.datasets.Milling" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="ice.base.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
-<p>Preprocessed to mil data from the Milling Data Set:
-<a class="reference external" href="https://data.nasa.gov/Raw-Data/Milling-Wear/vjv9-9f3x/data">https://data.nasa.gov/Raw-Data/Milling-Wear/vjv9-9f3x/data</a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.health_index_estimation.datasets.Milling.set_name_public_link">
-<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.datasets.Milling.set_name_public_link" title="Permalink to this definition">#</a></dt>
-<dd><p>This method has to be implemented by all children. Set name and public link.</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ice.health_index_estimation.metrics">
-<span id="hi-metrics"></span><h2>HI metrics<a class="headerlink" href="#module-ice.health_index_estimation.metrics" title="Permalink to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="ice.health_index_estimation.metrics.mse">
-<span class="sig-prename descclassname"><span class="pre">ice.health_index_estimation.metrics.</span></span><span class="sig-name descname"><span class="pre">mse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#ice.health_index_estimation.metrics.mse" title="Permalink to this definition">#</a></dt>
-<dd><p>Mean squared error between real and predicted wear.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pred</strong> (<em>list</em>) – numpy prediction values.</p></li>
-<li><p><strong>target</strong> (<em>list</em>) – numpy target values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>rmse</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="module-ice.health_index_estimation.utils">
-<span id="hi-utils"></span><h2>HI utils<a class="headerlink" href="#module-ice.health_index_estimation.utils" title="Permalink to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.health_index_estimation.utils.SlidingWindowDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.health_index_estimation.utils.</span></span><span class="sig-name descname"><span class="pre">SlidingWindowDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.utils.SlidingWindowDataset" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.health_index_estimation.utils.SlidingWindowDataset.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.health_index_estimation.utils.SlidingWindowDataset.__init__" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
 </section>
 
 
@@ -494,12 +448,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ice.remaining_useful_life_estimation.models.html"
+       href="ice.remaining_useful_life_estimation.utils.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Health index models</p>
+        <p class="prev-next-title">Remaining useful life utils</p>
       </div>
     </a>
     <a class="right-next"
@@ -519,34 +473,6 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.datasets">HI datasets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.datasets.Milling"><code class="docutils literal notranslate"><span class="pre">Milling</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.datasets.Milling.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">Milling.set_name_public_link()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.metrics">HI metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.metrics.mse"><code class="docutils literal notranslate"><span class="pre">mse()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ice.health_index_estimation.utils">HI utils</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.utils.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.health_index_estimation.utils.SlidingWindowDataset.__init__"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset.__init__()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">

@@ -1,35 +1,10 @@
 Anomaly detection
 =================
 
-Models
-------
-
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    Models<ice.anomaly_detection.models>
-
-
-AD datasets
------------
-
-.. automodule:: ice.anomaly_detection.datasets
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-AD metrics
-----------
-
-.. automodule:: ice.anomaly_detection.metrics
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-AD utils
---------
-
-.. automodule:: ice.anomaly_detection.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   Datasets<ice.anomaly_detection.datasets>
+   Metrics<ice.anomaly_detection.metrics>
+   Utils<ice.anomaly_detection.utils>

@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Custom classes" href="../custom/index.html" />
-    <link rel="prev" title="Remaining useful life models" href="ice.health_index_estimation.models.html" />
+    <link rel="prev" title="Health index estimation utils" href="ice.health_index_estimation.utils.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -328,18 +328,30 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="ice.base.html">Base modules</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.fault_diagnosis.html">Fault Diagnosis</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.anomaly_detection.html">Anomaly detection</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.remaining_useful_life_estimation.html">Remaining useful lifetime</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ice.health_index_estimation.html">Health index</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.utils.html">Utils</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Configs</a></li>
@@ -404,16 +416,11 @@ document.write(`
 <span id="configs"></span><h1>Configs<a class="headerlink" href="#module-ice.configs" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ice.configs.Config">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.configs.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.configs.Config" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.configs.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/configs.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.configs.Config" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="ice.configs.Config.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.configs.Config.__init__" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="ice.configs.Config.path_get">
-<span class="sig-name descname"><span class="pre">path_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.configs.Config.path_get" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">path_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/configs.html#Config.path_get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.configs.Config.path_get" title="Permalink to this definition">#</a></dt>
 <dd><p>Get value from config’s field defined with path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -430,7 +437,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ice.configs.Config.path_set">
-<span class="sig-name descname"><span class="pre">path_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.configs.Config.path_set" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">path_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/configs.html#Config.path_set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.configs.Config.path_set" title="Permalink to this definition">#</a></dt>
 <dd><p>Set value for config’s field defined with path. Create fields, if path doesn’t exists.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -444,7 +451,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ice.configs.Config.to_yaml">
-<span class="sig-name descname"><span class="pre">to_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ice.configs.Config.to_yaml" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">to_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/configs.html#Config.to_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.configs.Config.to_yaml" title="Permalink to this definition">#</a></dt>
 <dd><p>Dump config to a YAML file at the specified path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -468,12 +475,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ice.health_index_estimation.models.html"
+       href="ice.health_index_estimation.utils.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Remaining useful life models</p>
+        <p class="prev-next-title">Health index estimation utils</p>
       </div>
     </a>
     <a class="right-next"
@@ -501,7 +508,6 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.configs.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.configs.Config.__init__"><code class="docutils literal notranslate"><span class="pre">Config.__init__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.configs.Config.path_get"><code class="docutils literal notranslate"><span class="pre">Config.path_get()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.configs.Config.path_set"><code class="docutils literal notranslate"><span class="pre">Config.path_set()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.configs.Config.to_yaml"><code class="docutils literal notranslate"><span class="pre">Config.to_yaml()</span></code></a></li>
