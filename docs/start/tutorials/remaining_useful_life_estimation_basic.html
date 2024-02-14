@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Quick tutorials &#8212; ICE  documentation</title>
+    <title>Tutorial on remaining useful lifetime estimation task &#8212; ICE  documentation</title>
   
   
   
@@ -46,11 +46,11 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'start/tutorials/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'start/tutorials/remaining_useful_life_estimation_basic';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tutorial on fault diagnosis task" href="fault_diagnosis_basic.html" />
-    <link rel="prev" title="Health index" href="../tasks/task_hi.html" />
+    <link rel="next" title="Tutorial on health index estimation task" href="health_index_estimation_basic.html" />
+    <link rel="prev" title="Tutorial on anomaly detection task" href="anomaly_detection_basic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -333,10 +333,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../tasks/task_hi.html">Health index</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Quick tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Quick tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="fault_diagnosis_basic.html">Tutorial on fault diagnosis task</a></li>
 <li class="toctree-l2"><a class="reference internal" href="anomaly_detection_basic.html">Tutorial on anomaly detection task</a></li>
-<li class="toctree-l2"><a class="reference internal" href="remaining_useful_life_estimation_basic.html">Tutorial on remaining useful lifetime estimation task</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tutorial on remaining useful lifetime estimation task</a></li>
 <li class="toctree-l2"><a class="reference internal" href="health_index_estimation_basic.html">Tutorial on health index estimation task</a></li>
 </ul>
 </li>
@@ -380,7 +380,10 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Getting started</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Quick tutorials</li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Quick tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Tutorial on remaining useful lifetime estimation task</li>
   </ul>
 </nav>
 </div>
@@ -397,16 +400,119 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="quick-tutorials">
-<span id="tutorials"></span><h1>Quick tutorials<a class="headerlink" href="#quick-tutorials" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="fault_diagnosis_basic.html">Tutorial on fault diagnosis task</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anomaly_detection_basic.html">Tutorial on anomaly detection task</a></li>
-<li class="toctree-l1"><a class="reference internal" href="remaining_useful_life_estimation_basic.html">Tutorial on remaining useful lifetime estimation task</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health_index_estimation_basic.html">Tutorial on health index estimation task</a></li>
-</ul>
+  <section id="tutorial-on-remaining-useful-lifetime-estimation-task">
+<h1>Tutorial on remaining useful lifetime estimation task<a class="headerlink" href="#tutorial-on-remaining-useful-lifetime-estimation-task" title="Permalink to this heading">#</a></h1>
+<p>Importing libraries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ice.remaining_useful_life_estimation.datasets</span> <span class="kn">import</span> <span class="n">RulCmapss</span>
+<span class="kn">from</span> <span class="nn">ice.remaining_useful_life_estimation.models</span> <span class="kn">import</span> <span class="n">LSTM</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">trange</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\user\conda\envs\Latent\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Initializing model class and train/test data split</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_class</span> <span class="o">=</span> <span class="n">RulCmapss</span><span class="p">()</span>
+
+<span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">test_data</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">test_target</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Training</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># 5</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">model_class</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span>
+        <span class="n">window_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+        <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+        <span class="n">num_epochs</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span>
+    <span class="p">)</span>
+    <span class="n">model_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_class</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_target</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 25000.32it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33333.10it/s]
+ 20%|██        | 1/5 [00:47&lt;03:09, 47.29s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33341.05it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33341.05it/s]
+ 40%|████      | 2/5 [01:33&lt;02:19, 46.56s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 24998.83it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 49985.75it/s]
+ 60%|██████    | 3/5 [02:19&lt;01:32, 46.38s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 11192.27it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33333.10it/s]
+ 80%|████████  | 4/5 [03:06&lt;00:46, 46.70s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33322.51it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33335.75it/s]
+100%|██████████| 5/5 [03:54&lt;00:00, 46.88s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printing metric</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmse</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">score</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">metrics_i</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+    <span class="n">rmse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">])</span>
+    <span class="n">score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">])</span>
+<span class="n">rmse_mean</span><span class="p">,</span> <span class="n">rmse_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">score_mean</span><span class="p">,</span> <span class="n">score_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rmse: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;score: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rmse: 14.456039 ± 0.461288
+score: 54669.804238 ± 15056.124157
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parameter esimation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_class</span><span class="o">.</span><span class="n">model_param_estimation</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(944129, (0.8843235832452774, 0.06986449102077215))
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -421,20 +527,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../tasks/task_hi.html"
+       href="anomaly_detection_basic.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Health index</p>
+        <p class="prev-next-title">Tutorial on anomaly detection task</p>
       </div>
     </a>
     <a class="right-next"
-       href="fault_diagnosis_basic.html"
+       href="health_index_estimation_basic.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial on fault diagnosis task</p>
+        <p class="prev-next-title">Tutorial on health index estimation task</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -449,7 +555,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/start/tutorials/index.rst.txt">
+    <a href="../../_sources/start/tutorials/remaining_useful_life_estimation_basic.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

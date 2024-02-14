@@ -337,6 +337,8 @@ document.write(`
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Quick tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/fault_diagnosis_basic.html">Tutorial on fault diagnosis task</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/anomaly_detection_basic.html">Tutorial on anomaly detection task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/remaining_useful_life_estimation_basic.html">Tutorial on remaining useful lifetime estimation task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/health_index_estimation_basic.html">Tutorial on health index estimation task</a></li>
 </ul>
 </li>
 </ul>
@@ -472,6 +474,115 @@ indicates fewer false alarms.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>In recent years, there has been a lot of research on neural network models for the task of
+anomaly detection. The most cited of them are presented in Table 1. The models were trained
+and tested on various datasets, but all of them can be adapted to work with TEP.</p>
+<table class="table" id="id1">
+<caption><span class="caption-text">Table 1: Deep learning models for Anomaly detection.</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Datasets</p></th>
+<th class="head"><p>F1-score</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="4"><p>DAGMM (2018) [4]</p></td>
+<td><p>KDDCUP</p></td>
+<td><p>0.9369</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thyroid</p></td>
+<td><p>0.4782</p></td>
+</tr>
+<tr class="row-even"><td><p>Arrhuthmia</p></td>
+<td><p>0.4983</p></td>
+</tr>
+<tr class="row-odd"><td><p>KDDCUP-Rev</p></td>
+<td><p>0.9380</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GDN (2021) [5]</p></td>
+<td><p>SWaT</p></td>
+<td><p>0.81</p></td>
+</tr>
+<tr class="row-odd"><td><p>WADI</p></td>
+<td><p>0.57</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>GTA (2022) [6]</p></td>
+<td><p>SWaT</p></td>
+<td><p>0.84</p></td>
+</tr>
+<tr class="row-odd"><td><p>WADI</p></td>
+<td><p>0.82</p></td>
+</tr>
+<tr class="row-even"><td><p>SMAP</p></td>
+<td><p>0.9041</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSL</p></td>
+<td><p>0.9111</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>MAD-GAN (2019) [7]</p></td>
+<td><p>KDDCUP99</p></td>
+<td><p>0.94</p></td>
+</tr>
+<tr class="row-odd"><td><p>SWaT</p></td>
+<td><p>0.77</p></td>
+</tr>
+<tr class="row-even"><td><p>WADI</p></td>
+<td><p>0.37</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>MSCRED (2020) [8]</p></td>
+<td><p>Synthetic data</p></td>
+<td><p>0.89</p></td>
+</tr>
+<tr class="row-even"><td><p>Power Plant data</p></td>
+<td><p>0.82</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>OmniAnomaly (2019) [9]</p></td>
+<td><p>SMAP</p></td>
+<td><p>0.8434</p></td>
+</tr>
+<tr class="row-even"><td><p>MSL</p></td>
+<td><p>0.8989</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMD</p></td>
+<td><p>0.8857</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><p>THOC (2020) [10]</p></td>
+<td><p>2D-gesture</p></td>
+<td><p>0.6331</p></td>
+</tr>
+<tr class="row-odd"><td><p>power-demand</p></td>
+<td><p>0.4568</p></td>
+</tr>
+<tr class="row-even"><td><p>KDDCUP99</p></td>
+<td><p>0.9886</p></td>
+</tr>
+<tr class="row-odd"><td><p>SWaT</p></td>
+<td><p>0.8809</p></td>
+</tr>
+<tr class="row-even"><td><p>SMAP</p></td>
+<td><p>0.9518</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSL</p></td>
+<td><p>0.9367</p></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><p>USAD (2020) [11]</p></td>
+<td><p>SWaT</p></td>
+<td><p>0.8460</p></td>
+</tr>
+<tr class="row-odd"><td><p>WADI</p></td>
+<td><p>0.4296</p></td>
+</tr>
+<tr class="row-even"><td><p>SMAP</p></td>
+<td><p>0.8634</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSL</p></td>
+<td><p>0.9272</p></td>
+</tr>
+<tr class="row-even"><td><p>SMD</p></td>
+<td><p>0.9463</p></td>
+</tr>
+</tbody>
+</table>
 <p>[1]   Reinartz, Christopher, Murat Kulahci, and Ole Ravn. “An extended Tennessee
 Eastman simulation dataset for fault-detection and decision support systems.”
 Computers &amp; Chemical Engineering 149 (2021): 107281</p>
@@ -481,6 +592,32 @@ Time-Series Data: Review, Analysis, and Guidelines,” in IEEE Access, vol. 9, p
 <p>[3]   Gen Li, Jason J. Jung, “Deep learning for anomaly detection in multivariate
 time series: Approaches, applications, and challenges,” Information Fusion, Volume
 91, 2023</p>
+<p>[4]   B. Zong, Q. Song, M. R. Min, W. Cheng, C. Lumezanu, D. Cho, and
+H. Chen, “Deep autoencoding Gaussian mixture model for unsupervised
+anomaly detection,” in Proc. Int. Conf. Learn. Represent., pp. 1–19, 2018</p>
+<p>[5]   A. Deng and B. Hooi, “Graph neural network-based anomaly detection
+in multivariate time series,” in Proc. Conf. Artif. Intell. (AAAI), vol. 35, pp.
+4027–4035, 2021</p>
+<p>[6]   Z. Chen, D. Chen, X. Zhang, Z. Yuan, and X. Cheng, “Learning graph structures
+with transformer for multivariate time series anomaly detection in IoT,”
+arXiv:2104.03466, 2022</p>
+<p>[7]   D. Li, D. Chen, B. Jin, L. Shi, J. Goh, and S.-K. Ng, “MAD-GAN: Multivariate
+anomaly detection for time series data with generative adversarial networks,” in Proc.
+Int. Conf. Artif. Neural Netw. (ICANN). Munich, Germany: Springer, pp. 703–716, 2019</p>
+<p>[8]   J. Sipple, “Interpretable, multidimensional, multimodal anomaly detection with
+negative sampling for detection of device failure,” in Proc. Int. Conf. Mach. Learn.,
+pp. 9016–9025, 2020</p>
+<p>[9]   Y. Su, Y. Zhao, C. Niu, R. Liu, W. Sun, and D. Pei, “Robust anomaly detection
+for multivariate time series through stochastic recurrent neural network,”
+in Proc. 25th ACM SIGKDD Int. Conf. Knowl. Discovery Data
+Mining, pp. 2828–2837, 2019</p>
+<p>[10]  L. Shen, Z. Li, and J. Kwok, “Timeseries anomaly detection using temporal
+hierarchical one-class network,” in Proc. Adv. Neural Inf. Process. Syst., vol. 33,
+pp. 13016–13026, 2020</p>
+<p>[11]  J. Audibert, P. Michiardi, F. Guyard, S. Marti, and M. A. Zuluaga,
+“USAD: Unsupervised anomaly detection on multivariate time series,”
+in Proc. 26th ACM SIGKDD Int. Conf. Knowl. Discovery Data Mining,
+pp. 3395–3404, 2020</p>
 </section>
 </section>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Results of fault diagnosis using MLP-256 &#8212; ICE  documentation</title>
+    <title>Results of RUL estimation using lstm-256 &#8212; ICE  documentation</title>
   
   
   
@@ -46,11 +46,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'benchmark/fd_benchmark_mlp_256';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'benchmark/rul_benchmark_lstm_256';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Results of anomaly detection using AutoEncoderMLP-256" href="ad_benchmark_autoencodermlp_256.html" />
-    <link rel="prev" title="Benchmarking" href="index.html" />
+    <link rel="next" title="Results of HI estimation using MLP-256" href="hi_benchmark_mlp_256.html" />
+    <link rel="prev" title="Results of anomaly detection using AutoEncoderMLP-256" href="ad_benchmark_autoencodermlp_256.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -326,9 +326,9 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of fault diagnosis using MLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd_benchmark_mlp_256.html">Results of fault diagnosis using MLP-256</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ad_benchmark_autoencodermlp_256.html">Results of anomaly detection using AutoEncoderMLP-256</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rul_benchmark_lstm_256.html">Results of RUL estimation using lstm-256</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of RUL estimation using lstm-256</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hi_benchmark_mlp_256.html">Results of HI estimation using MLP-256</a></li>
 </ul>
 </div>
@@ -370,7 +370,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Benchmarking</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Results of fault diagnosis using MLP-256</li>
+    <li class="breadcrumb-item active" aria-current="page">Results of RUL estimation using lstm-256</li>
   </ul>
 </nav>
 </div>
@@ -387,121 +387,117 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="results-of-fault-diagnosis-using-mlp-256">
-<h1>Results of fault diagnosis using MLP-256<a class="headerlink" href="#results-of-fault-diagnosis-using-mlp-256" title="Permalink to this heading">#</a></h1>
-<p>This notebook presents experimental results of fault diagnosis on the Tennessee Eastman Process dataset using the model MLP-256.</p>
+  <section id="results-of-rul-estimation-using-lstm-256">
+<h1>Results of RUL estimation using lstm-256<a class="headerlink" href="#results-of-rul-estimation-using-lstm-256" title="Permalink to this heading">#</a></h1>
+<p>This notebook presents experimental results of anomaly detection on the Tennessee Eastman Process dataset using the model AutoEncoderMLP-256.</p>
 <p>Importing libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">trange</span>
-<span class="kn">from</span> <span class="nn">ice.fault_diagnosis.datasets</span> <span class="kn">import</span> <span class="n">FaultDiagnosisReinartzTEP</span>
-<span class="kn">from</span> <span class="nn">ice.fault_diagnosis.models</span> <span class="kn">import</span> <span class="n">MLP</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Downloading the TEP dataset.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">FaultDiagnosisReinartzTEP</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e0307c5091b4440f874d9b9bdf1790b9", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "00717a9df6994d7b8702d2b190cb15eb", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "38851b785a784ff586de4753a4259e96", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "462c112bebd94852b0f081c9081aa1b6", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "432609aa7ce54534ac8825986671fe95", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e58014e4f6e74eb38ca5efa8ecb1029c", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "b124305e8b5648129865d94f1cc43dc2", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Standardization of the input data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
-<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Training the model and calculation of metrics.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span>
-        <span class="n">window_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
-        <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-        <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
-        <span class="n">num_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-        <span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
-    <span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
-            <span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4a03ad89fac42218b77d369568ddd89", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "b5641661fd6d439982e47879e14f92df", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "9289dbba584448a1a21f8dc50298694d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "3922e95f3a31413f8dec03d7d8482b4a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "6e59e991791644bba3c91a345a9a0fd8", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "8c126132b6bd4802aba1c4fb81918bef", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "3ba08788f6c44a5d898c88ae233a0046", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "7a2953384fc1458590c864e317071bd0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "2f695380308b49719fc18d78d03c1fb9", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "491e3fda17cd4dcaa5d01079f609d64e", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "6ae16d7b8c6a4350859cc29ccccec302", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Printing metrics.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">cdr</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">tpr</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">fpr</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">metrics_i</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
-    <span class="n">acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
-    <span class="n">cdr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;correct_daignosis_rate&quot;</span><span class="p">])</span>
-    <span class="n">tpr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;true_positive_rate&quot;</span><span class="p">])</span>
-    <span class="n">fpr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;false_positive_rate&quot;</span><span class="p">])</span>
-<span class="n">tpr_mean</span><span class="p">,</span> <span class="n">tpr_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">tpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">tpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">fpr_mean</span><span class="p">,</span> <span class="n">fpr_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ice.remaining_useful_life_estimation.datasets</span> <span class="kn">import</span> <span class="n">RulCmapss</span>
+<span class="kn">from</span> <span class="nn">ice.remaining_useful_life_estimation.models</span> <span class="kn">import</span> <span class="n">LSTM</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CDR: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cdr</span><span class="p">)</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">cdr</span><span class="p">)</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tpr_mean</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;TPR/FPR </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">tpr_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">tpr_std</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">fpr_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">fpr_std</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">trange</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.8500 ± 0.0029
-CDR: 0.9582 ± 0.0013
-TPR/FPR 1: 0.9948 ± 0.0039 / 0.0000 ± 0.0000
-TPR/FPR 2: 0.9951 ± 0.0008 / 0.0000 ± 0.0000
-TPR/FPR 3: 0.9457 ± 0.0487 / 0.0000 ± 0.0000
-TPR/FPR 4: 0.9963 ± 0.0020 / 0.0000 ± 0.0000
-TPR/FPR 5: 0.2423 ± 0.0490 / 0.0009 ± 0.0004
-TPR/FPR 6: 0.9984 ± 0.0002 / 0.0000 ± 0.0000
-TPR/FPR 7: 0.9978 ± 0.0001 / 0.0000 ± 0.0000
-TPR/FPR 8: 0.9782 ± 0.0136 / 0.0000 ± 0.0000
-TPR/FPR 9: 0.3068 ± 0.1355 / 0.0001 ± 0.0001
-TPR/FPR 10: 0.9754 ± 0.0018 / 0.0000 ± 0.0000
-TPR/FPR 11: 0.9539 ± 0.0130 / 0.0000 ± 0.0000
-TPR/FPR 12: 0.9098 ± 0.0086 / 0.0000 ± 0.0000
-TPR/FPR 13: 0.9702 ± 0.0074 / 0.0000 ± 0.0000
-TPR/FPR 14: 0.9949 ± 0.0006 / 0.0000 ± 0.0000
-TPR/FPR 15: 0.0000 ± 0.0000 / 0.0000 ± 0.0000
-TPR/FPR 16: 0.2772 ± 0.0309 / 0.0002 ± 0.0001
-TPR/FPR 17: 0.9786 ± 0.0006 / 0.0000 ± 0.0000
-TPR/FPR 18: 0.9635 ± 0.0019 / 0.0000 ± 0.0000
-TPR/FPR 19: 0.9918 ± 0.0004 / 0.0000 ± 0.0000
-TPR/FPR 20: 0.9739 ± 0.0006 / 0.0000 ± 0.0000
-TPR/FPR 21: 0.0000 ± 0.0000 / 0.0000 ± 0.0000
-TPR/FPR 22: 0.5031 ± 0.1355 / 0.0000 ± 0.0000
-TPR/FPR 23: 0.8086 ± 0.0242 / 0.0000 ± 0.0000
-TPR/FPR 24: 0.9890 ± 0.0011 / 0.0000 ± 0.0000
-TPR/FPR 25: 0.9872 ± 0.0007 / 0.0000 ± 0.0000
-TPR/FPR 26: 0.9696 ± 0.0064 / 0.0000 ± 0.0000
-TPR/FPR 27: 0.9742 ± 0.0111 / 0.0000 ± 0.0000
-TPR/FPR 28: 0.3768 ± 0.0459 / 0.0002 ± 0.0001
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\user\conda\envs\Latent\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Initializing model class and train/test data split</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_class</span> <span class="o">=</span> <span class="n">RulCmapss</span><span class="p">()</span>
+
+<span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">test_data</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">test_target</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Training</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># 5</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">model_class</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span>
+        <span class="n">window_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+        <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+        <span class="n">num_epochs</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span>
+    <span class="p">)</span>
+    <span class="n">model_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_class</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_target</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 25000.32it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33333.10it/s]
+ 20%|██        | 1/5 [00:47&lt;03:09, 47.29s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33341.05it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33341.05it/s]
+ 40%|████      | 2/5 [01:33&lt;02:19, 46.56s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 24998.83it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 49985.75it/s]
+ 60%|██████    | 3/5 [02:19&lt;01:32, 46.38s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 11192.27it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33333.10it/s]
+ 80%|████████  | 4/5 [03:06&lt;00:46, 46.70s/it]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33322.51it/s]
+
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33335.75it/s]
+100%|██████████| 5/5 [03:54&lt;00:00, 46.88s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printing metric</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmse</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">score</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">metrics_i</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+    <span class="n">rmse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">])</span>
+    <span class="n">score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">])</span>
+<span class="n">rmse_mean</span><span class="p">,</span> <span class="n">rmse_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">score_mean</span><span class="p">,</span> <span class="n">score_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rmse: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;score: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rmse: 14.456039 ± 0.461288
+score: 54669.804238 ± 15056.124157
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parameter esimation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_class</span><span class="o">.</span><span class="n">model_param_estimation</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(944129, (0.8843235832452774, 0.06986449102077215))
 </pre></div>
 </div>
 </div>
@@ -519,20 +515,20 @@ TPR/FPR 28: 0.3768 ± 0.0459 / 0.0002 ± 0.0001
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="ad_benchmark_autoencodermlp_256.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Benchmarking</p>
+        <p class="prev-next-title">Results of anomaly detection using AutoEncoderMLP-256</p>
       </div>
     </a>
     <a class="right-next"
-       href="ad_benchmark_autoencodermlp_256.html"
+       href="hi_benchmark_mlp_256.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Results of anomaly detection using AutoEncoderMLP-256</p>
+        <p class="prev-next-title">Results of HI estimation using MLP-256</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -547,7 +543,7 @@ TPR/FPR 28: 0.3768 ± 0.0459 / 0.0002 ± 0.0001
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/benchmark/fd_benchmark_mlp_256.ipynb.txt">
+    <a href="../_sources/benchmark/rul_benchmark_lstm_256.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
