@@ -16,9 +16,9 @@ Testing
 To test ICE, download the repository by pressing on "Code" and "Download ZIP" in the main page. Then, unzip the files and go to the root folder by the following command (for linux, macos):
 
 ::
-cd codeai-ice-main
+    cd codeai-ice-main
 
 Finally, run the following command:
 
 ::
-pytest ice/tests
+    pytest ice/tests
