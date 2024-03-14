@@ -477,12 +477,186 @@ indicates fewer false alarms.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<p>[1]   Reinartz, Christopher, Murat Kulahci, and Ole Ravn. “An extended Tennessee
+<p>The reference results of state-of-the-art papers for the original [1] dataset
+are presented in Table 1.</p>
+<table class="table" id="id1">
+<caption><span class="caption-text">Table 1: References for TEP dataset. FPR/TPR values. Not all the metrics
+are available for comparison.</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fault</p></th>
+<th class="head"><p>PCA[3]</p></th>
+<th class="head"><p>DBN-SVDD[4]</p></th>
+<th class="head"><p>UN-DBN[5]</p></th>
+<th class="head"><p>GAN[6]</p></th>
+<th class="head"><p>MSDAE-TP[6]</p></th>
+<th class="head"><p>GRU[7]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</p></td>
+<td><p>-/0.98
+-/0.002
+-/0.54
+-/0.22
+-/0.99
+-/1.00
+-/0.96
+-/0.001
+-/0.33
+-/0.2
+-/0.97
+-/0.94
+-/1.00
+-/0.001
+-/0.15
+-/0.74
+-/0.88
+-/0.14
+-/0.31
+-/0.26</p></td>
+<td><p>0.02/0.99
+0.01/0.07
+0.01/0.99
+0.01/1.00
+0.03/1.00
+0.03/1.00
+0.02/0.98
+0.01/0.01
+0.03/0.74
+0.01/0.75
+0.01/0.99
+0.03/0.95
+0.02/1.00
+0.02/0.14
+0.01/0.56
+0.01/0.96
+0.03/0.90
+0.02/0.59
+0.01/0.82
+0.02/0.52</p></td>
+<td><p>0.01/0.99
+0.02/0.11
+0.01/1.00
+0.01/1.00
+0.01/1.00
+0.03/1.00
+0.02/0.98
+0.01/0.02
+0.02/0.82
+0.00/0.91
+0.01/1.00
+0.01/0.95
+0.01/1.00
+0.02/0.13
+0.02/0.64
+0.02/0.98
+0.01/0.89
+0.03/0.98
+0.02/0.87
+0.03/0.50</p></td>
+<td><p>0.00/0.99
+0.1/0.1
+0.06/0.56
+0.06/0.32
+0.00/1.00
+0.00/1.00
+0.00/0.98
+0.2/0.08
+0.00/0.51
+0.06/0.58
+0.13/0.99
+0.02/0.95
+0.02/1.00
+0.03/0.13
+0.2/0.34
+0.02/0.91
+0.02/0.90
+0.01/0.12
+0.00/0.58
+0.06/0.5</p></td>
+<td><p>0.01/0.99
+0.00/0.22
+0.01/1.00
+0.01/1.00
+0.00/1.00
+0.00/1.00
+0.02/0.99
+0.03/0.04
+0.02/0.95
+0.03/0.97
+0.02/1.00
+0.02/0.97
+0.01/1.00
+0.01/0.39
+01/0.92
+0.02/0.98
+0.01/0.94
+0.02/1.00
+0.01/0.92
+0.02/0.60</p></td>
+<td><p>0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/0.99
+0.00/0.99
+0.00/1.00
+0.00/0.94
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+0.00/1.00
+-/-</p></td>
+</tr>
+</tbody>
+</table>
+<p>[1] Reinartz, Christopher, Murat Kulahci, and Ole Ravn. “An extended Tennessee
 Eastman simulation dataset for fault-detection and decision support systems.”
 Computers &amp; Chemical Engineering 149 (2021): 107281</p>
-<p>[2]   Abid, Anam, Muhammad Tahir Khan, and Javaid Iqbal. “A review on fault
+<p>[2] Abid, Anam, Muhammad Tahir Khan, and Javaid Iqbal. “A review on fault
 detection and diagnosis techniques: basics and beyond.” Artificial Intelligence
 Review 54 (2021): 3639-3664.</p>
+<p>[3] Yan, Shifu, and Xuefeng Yan. “Design teacher and supervised dual stacked
+auto-encoders for quality-relevant fault detection in industrial process.”
+Applied Soft Computing 81 (2019): 105526.</p>
+<p>[4] Yu, Jianbo, and Xuefeng Yan. “Layer-by-layer enhancement strategy of
+favorable features of the deep belief network for industrial process monitoring.”
+Industrial &amp; Engineering Chemistry Research 57.45 (2018): 15479-15490.</p>
+<p>[5] Yu, Jianbo, and Xuefeng Yan. “Whole process monitoring based on unstable
+neuron output information in hidden layers of deep belief network.” IEEE
+transactions on cybernetics 50.9 (2019): 3998-4007.</p>
+<p>[6] Yu, Jianbo, and Xuefeng Yan. “Multiscale intelligent fault detection system
+based on agglomerative hierarchical clustering using stacked denoising
+autoencoder with temporal information.” Applied Soft Computing 95 (2020): 106525.</p>
+<p>[7] Lomov, Ildar, et al. “Fault detection in Tennessee Eastman process with
+temporal deep learning models.” Journal of Industrial Information Integration 23
+(2021): 100216.</p>
 </section>
 </section>
 
