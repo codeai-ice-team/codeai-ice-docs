@@ -441,6 +441,30 @@ Used for testing purposes.</p></li>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.datasets.RulCmapssPaper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.remaining_useful_life_estimation.datasets.</span></span><span class="sig-name descname"><span class="pre">RulCmapssPaper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/datasets.html#RulCmapssPaper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ice.base.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
+<p>Preprocessed to piece wise RUL data from the dataset:
+Saxena A. et al. Damage propagation modeling for aircraft engine run-to-failure simulation
+DOI: 10.1109/PHM.2008.4711414. Target is the minimum rul value for every test device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_chunks</strong> (<em>int</em>) – If given, download only num_chunks chunks of data.
+Used for testing purposes.</p></li>
+<li><p><strong>force_download</strong> (<em>bool</em>) – If True, download the dataset even if it exists.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.datasets.RulCmapssPaper.set_name_public_link">
+<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/datasets.html#RulCmapssPaper.set_name_public_link"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper.set_name_public_link" title="Permalink to this definition">#</a></dt>
+<dd><p>This method has to be implemented by all children. Set name and public link.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -488,6 +512,10 @@ Used for testing purposes.</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapss"><code class="docutils literal notranslate"><span class="pre">RulCmapss</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapss.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">RulCmapss.set_name_public_link()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper"><code class="docutils literal notranslate"><span class="pre">RulCmapssPaper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">RulCmapssPaper.set_name_public_link()</span></code></a></li>
 </ul>
 </li>
 </ul>

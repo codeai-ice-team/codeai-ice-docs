@@ -6,14 +6,18 @@ BaseHealthIndexEstimation
 
 .. automodule:: ice.remaining_useful_life_estimation.models.base
    :members:
-   :undoc-members:
    :show-inheritance:
 
 MLP
 ---
 
-.. automodule:: ice.remaining_useful_life_estimation.models.mlp
+.. autoclass:: ice.remaining_useful_life_estimation.models.mlp.MLP
    :members:
-   :undoc-members:
    :show-inheritance:
 
+LSTM
+----
+
+.. autoclass:: ice.remaining_useful_life_estimation.models.lstm.LSTM
+   :members:
+   :show-inheritance:
