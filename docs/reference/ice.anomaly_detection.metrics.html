@@ -419,21 +419,63 @@ document.write(`
 <span id="anomaly-detection-metrics"></span><h1>Anomaly detection metrics<a class="headerlink" href="#module-ice.anomaly_detection.metrics" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ice.anomaly_detection.metrics.accuracy">
-<span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.metrics.</span></span><span class="sig-name descname"><span class="pre">accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/ice/anomaly_detection/metrics.html#accuracy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.anomaly_detection.metrics.accuracy" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.metrics.</span></span><span class="sig-name descname"><span class="pre">accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/ice/anomaly_detection/metrics.html#accuracy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.anomaly_detection.metrics.accuracy" title="Permalink to this definition">#</a></dt>
 <dd><p>Accuracy of the classification is the number of true positives divided by
 the number of examples.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pred</strong> (<em>list</em>) – predictions.</p></li>
-<li><p><strong>target</strong> (<em>list</em>) – target values.</p></li>
+<li><p><strong>pred</strong> (<em>np.ndarray</em>) – predictions.</p></li>
+<li><p><strong>target</strong> (<em>np.ndarray</em>) – target values.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>accuracy</p>
+<dd class="field-even"><p>accuracy.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ice.anomaly_detection.metrics.false_positive_rate">
+<span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.metrics.</span></span><span class="sig-name descname"><span class="pre">false_positive_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ice/anomaly_detection/metrics.html#false_positive_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.anomaly_detection.metrics.false_positive_rate" title="Permalink to this definition">#</a></dt>
+<dd><p>False Positive Rate, aka False Alarm Rate is the number of false alarms i
+divided by the number of normal samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pred</strong> (<em>np.ndarray</em>) – predictions.</p></li>
+<li><p><strong>target</strong> (<em>np.ndarray</em>) – target values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of float values with true positive rate for each fault.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ice.anomaly_detection.metrics.true_positive_rate">
+<span class="sig-prename descclassname"><span class="pre">ice.anomaly_detection.metrics.</span></span><span class="sig-name descname"><span class="pre">true_positive_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ice/anomaly_detection/metrics.html#true_positive_rate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.anomaly_detection.metrics.true_positive_rate" title="Permalink to this definition">#</a></dt>
+<dd><p>True Positive Rate is the number of detected faults i divided by the
+number of faults i.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pred</strong> (<em>np.ndarray</em>) – predictions.</p></li>
+<li><p><strong>target</strong> (<em>np.ndarray</em>) – target values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of float values with true positive rate for each fault.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -484,6 +526,8 @@ the number of examples.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.metrics.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.metrics.false_positive_rate"><code class="docutils literal notranslate"><span class="pre">false_positive_rate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.anomaly_detection.metrics.true_positive_rate"><code class="docutils literal notranslate"><span class="pre">true_positive_rate()</span></code></a></li>
 </ul>
   </nav></div>
 

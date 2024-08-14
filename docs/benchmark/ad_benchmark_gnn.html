@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Remaining useful life datasets &#8212; ICE  documentation</title>
+    <title>Results of anomaly detection using GSL-GNN &#8212; ICE  documentation</title>
   
   
   
@@ -46,11 +46,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/ice.remaining_useful_life_estimation.datasets';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'benchmark/ad_benchmark_gnn';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Remaining useful life metrics" href="ice.remaining_useful_life_estimation.metrics.html" />
-    <link rel="prev" title="Health index models" href="ice.remaining_useful_life_estimation.models.html" />
+    <link rel="next" title="Results of RUL estimation using lstm-256" href="rul_benchmark_lstm_256.html" />
+    <link rel="prev" title="Results of anomaly detection using STGAT-MAD" href="ad_benchmark_stgat.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,8 +161,8 @@
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -175,8 +175,8 @@
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../benchmark/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
                         Benchmarking
                       </a>
                     </li>
@@ -276,8 +276,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -290,8 +290,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../benchmark/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
                         Benchmarking
                       </a>
                     </li>
@@ -324,37 +324,18 @@ document.write(`
         <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ice.base.html">Base modules</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ice.fault_diagnosis.html">Fault Diagnosis</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.models.html">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.datasets.html">Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.fault_diagnosis.utils.html">Utils</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ice.anomaly_detection.html">Anomaly detection</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.models.html">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.datasets.html">Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.anomaly_detection.utils.html">Utils</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="ice.remaining_useful_life_estimation.html">Remaining useful lifetime</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.models.html">Models</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.remaining_useful_life_estimation.utils.html">Utils</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ice.health_index_estimation.html">Health index</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.models.html">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.datasets.html">Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ice.health_index_estimation.utils.html">Utils</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ice.configs.html">Configs</a></li>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fd_benchmark_mlp_256.html">Results of fault diagnosis using MLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd_benchmark_tcn.html">Results of fault diagnosis using TCN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_autoencodermlp_256.html">Results of anomaly detection using AutoEncoderMLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_transformer.html">Results of anomaly detection using AnomalyTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_stgat.html">Results of anomaly detection using STGAT-MAD</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of anomaly detection using GSL-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rul_benchmark_lstm_256.html">Results of RUL estimation using lstm-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rul_sota.html">Results of RUL estimation using IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hi_benchmark_mlp_256.html">Results of HI estimation using MLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hi_sota.html">Results of HI estimation using Stacked LSTM</a></li>
 </ul>
 </div>
 </nav></div>
@@ -393,12 +374,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API reference</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Benchmarking</a></li>
     
-    
-    <li class="breadcrumb-item"><a href="ice.remaining_useful_life_estimation.html" class="nav-link">Remaining useful life</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">Remaining useful life datasets</li>
+    <li class="breadcrumb-item active" aria-current="page">Results of anomaly detection using GSL-GNN</li>
   </ul>
 </nav>
 </div>
@@ -415,56 +393,79 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="module-ice.remaining_useful_life_estimation.datasets">
-<span id="remaining-useful-life-datasets"></span><h1>Remaining useful life datasets<a class="headerlink" href="#module-ice.remaining_useful_life_estimation.datasets" title="Permalink to this heading">#</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.datasets.RulCmapss">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.remaining_useful_life_estimation.datasets.</span></span><span class="sig-name descname"><span class="pre">RulCmapss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/datasets.html#RulCmapss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.datasets.RulCmapss" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="ice.base.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
-<p>Preprocessed to piece wise RUL data from the dataset:
-Saxena A. et al. Damage propagation modeling for aircraft engine run-to-failure simulation
-DOI: 10.1109/PHM.2008.4711414</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_chunks</strong> (<em>int</em>) – If given, download only num_chunks chunks of data.
-Used for testing purposes.</p></li>
-<li><p><strong>force_download</strong> (<em>bool</em>) – If True, download the dataset even if it exists.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.datasets.RulCmapss.set_name_public_link">
-<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/datasets.html#RulCmapss.set_name_public_link"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.datasets.RulCmapss.set_name_public_link" title="Permalink to this definition">#</a></dt>
-<dd><p>This method has to be implemented by all children. Set name and public link.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.datasets.RulCmapssPaper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.remaining_useful_life_estimation.datasets.</span></span><span class="sig-name descname"><span class="pre">RulCmapssPaper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/datasets.html#RulCmapssPaper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="ice.base.html#ice.base.BaseDataset" title="ice.base.BaseDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDataset</span></code></a></p>
-<p>Preprocessed to piece wise RUL data from the dataset:
-Saxena A. et al. Damage propagation modeling for aircraft engine run-to-failure simulation
-DOI: 10.1109/PHM.2008.4711414. Target is the minimum rul value for every test device.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_chunks</strong> (<em>int</em>) – If given, download only num_chunks chunks of data.
-Used for testing purposes.</p></li>
-<li><p><strong>force_download</strong> (<em>bool</em>) – If True, download the dataset even if it exists.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.datasets.RulCmapssPaper.set_name_public_link">
-<span class="sig-name descname"><span class="pre">set_name_public_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/datasets.html#RulCmapssPaper.set_name_public_link"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper.set_name_public_link" title="Permalink to this definition">#</a></dt>
-<dd><p>This method has to be implemented by all children. Set name and public link.</p>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="results-of-anomaly-detection-using-gsl-gnn">
+<h1>Results of anomaly detection using GSL-GNN<a class="headerlink" href="#results-of-anomaly-detection-using-gsl-gnn" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ice.anomaly_detection.datasets</span> <span class="kn">import</span> <span class="n">AnomalyDetectionRiethTEP</span>
+<span class="kn">from</span> <span class="nn">ice.anomaly_detection.models</span> <span class="kn">import</span> <span class="n">GSL_GNN</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">AnomalyDetectionRiethTEP</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2624ffc040e04ed6a9fbe3fd021f6633", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "0ae4953a5ed248f1aa3d12c5fecff639", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "72c5c54e430b4621b5d805ebd176dde8", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Normalize the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create the GNN model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">GSL_GNN</span><span class="p">(</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
+    <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">val_ratio</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">save_checkpoints</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">threshold_level</span><span class="o">=</span><span class="mf">0.98</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load the checkpoint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="s1">&#39;gnn_anomaly_detection_epoch_30.tar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluate the model on the test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+<span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a3b0848390d414e88b125f68a606a15", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;accuracy&#39;: 0.8517518472906404,
+ &#39;true_positive_rate&#39;: [0.82365725],
+ &#39;false_positive_rate&#39;: [0.019373853211009175]}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
 
@@ -478,20 +479,20 @@ Used for testing purposes.</p></li>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ice.remaining_useful_life_estimation.models.html"
+       href="ad_benchmark_stgat.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Health index models</p>
+        <p class="prev-next-title">Results of anomaly detection using STGAT-MAD</p>
       </div>
     </a>
     <a class="right-next"
-       href="ice.remaining_useful_life_estimation.metrics.html"
+       href="rul_benchmark_lstm_256.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Remaining useful life metrics</p>
+        <p class="prev-next-title">Results of RUL estimation using lstm-256</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -505,25 +506,8 @@ Used for testing purposes.</p></li>
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapss"><code class="docutils literal notranslate"><span class="pre">RulCmapss</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapss.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">RulCmapss.set_name_public_link()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper"><code class="docutils literal notranslate"><span class="pre">RulCmapssPaper</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">RulCmapssPaper.set_name_public_link()</span></code></a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/reference/ice.remaining_useful_life_estimation.datasets.rst.txt">
+    <a href="../_sources/benchmark/ad_benchmark_gnn.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

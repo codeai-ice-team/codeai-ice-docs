@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Datasets &#8212; ICE  documentation</title>
+    <title>Results of anomaly detection using AnomalyTransformer &#8212; ICE  documentation</title>
   
   
   
@@ -46,11 +46,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'start/datasets';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'benchmark/ad_benchmark_transformer';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tasks" href="tasks/index.html" />
-    <link rel="prev" title="Installation" href="installation.html" />
+    <link rel="next" title="Results of anomaly detection using STGAT-MAD" href="ad_benchmark_stgat.html" />
+    <link rel="prev" title="Results of anomaly detection using AutoEncoderMLP-256" href="ad_benchmark_autoencodermlp_256.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -147,8 +147,8 @@
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../start/index.html">
                         Getting started
                       </a>
                     </li>
@@ -162,7 +162,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -175,8 +175,8 @@
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../benchmark/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
                         Benchmarking
                       </a>
                     </li>
@@ -262,8 +262,8 @@ document.write(`
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../start/index.html">
                         Getting started
                       </a>
                     </li>
@@ -277,7 +277,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -290,8 +290,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../benchmark/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
                         Benchmarking
                       </a>
                     </li>
@@ -324,21 +324,18 @@ document.write(`
         <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Datasets</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tasks/index.html">Tasks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tasks/task_ad.html">Anomaly detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks/task_fd.html">Fault diagnosis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks/task_rul.html">Remaining useful lifetime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tasks/task_hi.html">Health index</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/index.html">Quick tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/fault_diagnosis_basic.html">Tutorial on fault diagnosis task</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/anomaly_detection_basic.html">Tutorial on anomaly detection task</a></li>
-</ul>
-</li>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fd_benchmark_mlp_256.html">Results of fault diagnosis using MLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd_benchmark_tcn.html">Results of fault diagnosis using TCN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_autoencodermlp_256.html">Results of anomaly detection using AutoEncoderMLP-256</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of anomaly detection using AnomalyTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_stgat.html">Results of anomaly detection using STGAT-MAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_gnn.html">Results of anomaly detection using GSL-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rul_benchmark_lstm_256.html">Results of RUL estimation using lstm-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rul_sota.html">Results of RUL estimation using IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hi_benchmark_mlp_256.html">Results of HI estimation using MLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hi_sota.html">Results of HI estimation using Stacked LSTM</a></li>
 </ul>
 </div>
 </nav></div>
@@ -377,9 +374,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Getting started</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Benchmarking</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Datasets</li>
+    <li class="breadcrumb-item active" aria-current="page">Results of anomaly detection using AnomalyTransformer</li>
   </ul>
 </nav>
 </div>
@@ -396,8 +393,84 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="datasets">
-<span id="id1"></span><h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this heading">#</a></h1>
+  <section id="results-of-anomaly-detection-using-anomalytransformer">
+<h1>Results of anomaly detection using AnomalyTransformer<a class="headerlink" href="#results-of-anomaly-detection-using-anomalytransformer" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ice.anomaly_detection.datasets</span> <span class="kn">import</span> <span class="n">AnomalyDetectionRiethTEP</span>
+<span class="kn">from</span> <span class="nn">ice.anomaly_detection.models</span> <span class="kn">import</span> <span class="n">AnomalyTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">AnomalyDetectionRiethTEP</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9d476c3e21c2495fbcafd2871cbcb866", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "feedeceb83ee4259a9317b06faaa5adf", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "1a190f2920934441943c09b99458c38e", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Normalize the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create the AnomalyTransformer model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AnomalyTransformer</span><span class="p">(</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+    <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> 
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
+    <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span> 
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">val_ratio</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">save_checkpoints</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">threshold_level</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span>
+    <span class="n">d_model</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+    <span class="n">e_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">d_ff</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+    <span class="n">dropout</span><span class="o">=</span><span class="mf">0.0</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load the checkpoint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="s1">&#39;transformer_anomaly_detection_epoch_30.tar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluate the model on the test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+<span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ccd51975d7e949a785adf91a1824096d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;accuracy&#39;: 0.8588669950738916,
+ &#39;true_positive_rate&#39;: [0.830817625],
+ &#39;false_positive_rate&#39;: [0.012466169724770642]}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
 
@@ -411,20 +484,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="installation.html"
+       href="ad_benchmark_autoencodermlp_256.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Installation</p>
+        <p class="prev-next-title">Results of anomaly detection using AutoEncoderMLP-256</p>
       </div>
     </a>
     <a class="right-next"
-       href="tasks/index.html"
+       href="ad_benchmark_stgat.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tasks</p>
+        <p class="prev-next-title">Results of anomaly detection using STGAT-MAD</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -439,7 +512,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/start/datasets.rst.txt">
+    <a href="../_sources/benchmark/ad_benchmark_transformer.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

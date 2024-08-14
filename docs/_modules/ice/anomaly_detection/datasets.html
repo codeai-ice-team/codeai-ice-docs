@@ -414,6 +414,30 @@ document.write(`
 <div class="viewcode-block" id="AnomalyDetectionReinartzTEP.set_name_public_link"><a class="viewcode-back" href="../../../reference/ice.anomaly_detection.datasets.html#ice.anomaly_detection.datasets.AnomalyDetectionReinartzTEP.set_name_public_link">[docs]</a>    <span class="k">def</span> <span class="nf">set_name_public_link</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;reinartz_tep&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">public_link</span> <span class="o">=</span> <span class="s1">&#39;https://disk.yandex.ru/d/NR6rjqCJCvrBZw&#39;</span></div></div>
+
+
+<div class="viewcode-block" id="AnomalyDetectionRiethTEP"><a class="viewcode-back" href="../../../reference/ice.anomaly_detection.datasets.html#ice.anomaly_detection.datasets.AnomalyDetectionRiethTEP">[docs]</a><span class="k">class</span> <span class="nc">AnomalyDetectionRiethTEP</span><span class="p">(</span><span class="n">BaseDataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dataset of Tennessee Eastman Process dataset </span>
+<span class="sd">    Rieth, C. A., Amsel, B. D., Tran, R., &amp; Cook, M. B. (2017). </span>
+<span class="sd">    Additional Tennessee Eastman Process Simulation Data for </span>
+<span class="sd">    Anomaly Detection Evaluation (Version V1) [Computer software]. </span>
+<span class="sd">    Harvard Dataverse. </span>
+<span class="sd">    https://doi.org/10.7910/DVN/6C3JR1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_chunks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_mask</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">public_link</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_name_public_link</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">(</span><span class="n">num_chunks</span><span class="p">,</span> <span class="n">force_download</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_mask</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="AnomalyDetectionRiethTEP.set_name_public_link"><a class="viewcode-back" href="../../../reference/ice.anomaly_detection.datasets.html#ice.anomaly_detection.datasets.AnomalyDetectionRiethTEP.set_name_public_link">[docs]</a>    <span class="k">def</span> <span class="nf">set_name_public_link</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;rieth_tep&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">public_link</span> <span class="o">=</span> <span class="s1">&#39;https://disk.yandex.ru/d/l9C0HzQUw2Ying&#39;</span></div></div>
 </pre></div>
 
                 </article>

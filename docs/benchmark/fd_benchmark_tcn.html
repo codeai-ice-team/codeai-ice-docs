@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Results of anomaly detection using AutoEncoderMLP-256 &#8212; ICE  documentation</title>
+    <title>Results of fault diagnosis using TCN &#8212; ICE  documentation</title>
   
   
   
@@ -46,9 +46,10 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'benchmark/ad_benchmark_autorncodermlp_256';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'benchmark/fd_benchmark_tcn';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Results of anomaly detection using AutoEncoderMLP-256" href="ad_benchmark_autoencodermlp_256.html" />
     <link rel="prev" title="Results of fault diagnosis using MLP-256" href="fd_benchmark_mlp_256.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -161,7 +162,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -276,7 +277,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../reference/modules.html">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
                         API reference
                       </a>
                     </li>
@@ -326,7 +327,15 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fd_benchmark_mlp_256.html">Results of fault diagnosis using MLP-256</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of anomaly detection using AutoEncoderMLP-256</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of fault diagnosis using TCN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_autoencodermlp_256.html">Results of anomaly detection using AutoEncoderMLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_transformer.html">Results of anomaly detection using AnomalyTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_stgat.html">Results of anomaly detection using STGAT-MAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_gnn.html">Results of anomaly detection using GSL-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rul_benchmark_lstm_256.html">Results of RUL estimation using lstm-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rul_sota.html">Results of RUL estimation using IR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hi_benchmark_mlp_256.html">Results of HI estimation using MLP-256</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hi_sota.html">Results of HI estimation using Stacked LSTM</a></li>
 </ul>
 </div>
 </nav></div>
@@ -367,7 +376,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Benchmarking</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Results of anomaly detection using AutoEncoderMLP-256</li>
+    <li class="breadcrumb-item active" aria-current="page">Results of fault diagnosis using TCN</li>
   </ul>
 </nav>
 </div>
@@ -384,79 +393,259 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="results-of-anomaly-detection-using-autoencodermlp-256">
-<h1>Results of anomaly detection using AutoEncoderMLP-256<a class="headerlink" href="#results-of-anomaly-detection-using-autoencodermlp-256" title="Permalink to this heading">#</a></h1>
-<p>This notebook presents experimental results of anomaly detection on the Tennessee Eastman Process dataset using the model AutoEncoderMLP-256.</p>
-<p>Importing libraries.</p>
+  <section id="results-of-fault-diagnosis-using-tcn">
+<h1>Results of fault diagnosis using TCN<a class="headerlink" href="#results-of-fault-diagnosis-using-tcn" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ice.fault_diagnosis.datasets</span> <span class="kn">import</span> <span class="n">FaultDiagnosisRiethTEP</span>
+<span class="kn">from</span> <span class="nn">ice.fault_diagnosis.models</span> <span class="kn">import</span> <span class="n">TCN</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">trange</span>
-<span class="kn">from</span> <span class="nn">ice.anomaly_detection.datasets</span> <span class="kn">import</span> <span class="n">AnomalyDetectionReinartzTEP</span><span class="p">,</span> <span class="n">AnomalyDetectionSmallTEP</span>
-<span class="kn">from</span> <span class="nn">ice.anomaly_detection.models</span> <span class="kn">import</span> <span class="n">AutoEncoderMLP</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Downloading the TEP dataset.</p>
+<p>Download the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">AnomalyDetectionReinartzTEP</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e81d3629e4e24f0babe7bfef1c5c66c1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a066605238741c485983da59da2a416", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "eed8ae7a6e52412b8489b054487f208e", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Training the model and calculation of metrics.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">AutoEncoderMLP</span><span class="p">(</span>
-        <span class="n">window_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
-        <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
-        <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
-        <span class="n">num_epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span>
-    <span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-        <span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
-    <span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
-            <span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">FaultDiagnosisRiethTEP</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2932dbcae0624b5e91b35e4d6cdfc184", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "dd6272b4d3554739a30b43a27f7adf22", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "1c92d5e1d9654f36863e51edff8d0725", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c7562bb1a5544459854ce491b55df4ff", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "f79859db81cc486f968123a7a81a4a45", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "266a1b2472814db8a1b35561b4a132b1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c45df25fcc5647b09587bab765307fcd", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "9fefba559ab64ed6b802ecd5ef3ea4ac", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "fc12bbc2e5194a68b58a1ea5f48c40f9", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "842b6907a3cb4033bcb1dee052569e82", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "75b8dacf77b14e3aa8a81c17c23d92fa", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ec7af5252301494c85187fe4084fe3da", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "4046be2c40d94339a68d4b17003dcc68", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "7c68ffa1b402446ebf41665797a05e05", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p>Printing metrics.</p>
+<p>Normalize the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">tpr</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">fpr</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">metrics_i</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
-    <span class="n">acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
-    <span class="n">tpr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;true_positive_rate&quot;</span><span class="p">])</span>
-    <span class="n">fpr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;false_positive_rate&quot;</span><span class="p">])</span>
-<span class="n">tpr_mean</span><span class="p">,</span> <span class="n">tpr_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">tpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">tpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">fpr_mean</span><span class="p">,</span> <span class="n">fpr_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create the TCN model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">TCN</span><span class="p">(</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span>
+    <span class="n">save_checkpoints</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">val_ratio</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load the checkpoint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="s1">&#39;tcn_fault_diagnosis_epoch_30.tar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluate the model on the test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "164dd9d5bcfc4e8fa1663f328291083c", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Fault&#39;</span><span class="p">:</span> <span class="n">idx</span><span class="p">,</span>
+    <span class="s1">&#39;TPR&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;true_positive_rate&#39;</span><span class="p">])[</span><span class="n">idx</span><span class="p">],</span>
+    <span class="s1">&#39;FPR&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;false_positive_rate&#39;</span><span class="p">])[</span><span class="n">idx</span><span class="p">],</span>
+<span class="p">})</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tpr_mean</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;TPR/FPR: </span><span class="si">{</span><span class="n">tpr_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">tpr_std</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">fpr_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">fpr_std</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fault</th>
+      <th>TPR</th>
+      <th>FPR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.9675</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.9738</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.9643</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0.9584</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.9731</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0.9679</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>0.9691</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9</td>
+      <td>0.9651</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>10</td>
+      <td>0.9788</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>11</td>
+      <td>0.9526</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>12</td>
+      <td>0.9418</td>
+      <td>0.0001</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>13</td>
+      <td>0.9780</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>15</td>
+      <td>0.9752</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>16</td>
+      <td>0.9608</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>17</td>
+      <td>0.9357</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>18</td>
+      <td>0.9717</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>19</td>
+      <td>0.9482</td>
+      <td>0.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average TPR: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;true_positive_rate&quot;</span><span class="p">])[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.8028 ± 0.0007
-TPR/FPR: 0.7378 ± 0.0022 / 0.0366 ± 0.0034
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average TPR: 0.96
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;true_positive_rate&quot;</span><span class="p">])[</span><span class="n">idx</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>96.75
+97.38
+96.43
+95.84
+97.31
+96.79
+96.91
+96.51
+97.88
+95.26
+94.18
+97.80
+97.52
+96.08
+93.57
+97.17
+94.82
 </pre></div>
 </div>
 </div>
@@ -482,6 +671,15 @@ TPR/FPR: 0.7378 ± 0.0022 / 0.0366 ± 0.0034
         <p class="prev-next-title">Results of fault diagnosis using MLP-256</p>
       </div>
     </a>
+    <a class="right-next"
+       href="ad_benchmark_autoencodermlp_256.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Results of anomaly detection using AutoEncoderMLP-256</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -493,7 +691,7 @@ TPR/FPR: 0.7378 ± 0.0022 / 0.0366 ± 0.0034
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/benchmark/ad_benchmark_autorncodermlp_256.ipynb.txt">
+    <a href="../_sources/benchmark/fd_benchmark_tcn.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

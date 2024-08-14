@@ -398,7 +398,7 @@ document.write(`
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">)</span> <span class="ow">or</span> <span class="n">force_download</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_download_pgbar</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">zfile_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">num_chunks</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_extracting_files</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">,</span> <span class="n">ref_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_extracting_files</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">,</span> <span class="s2">&quot;data/&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="p">[</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_read_csv_pgbar</span><span class="p">(</span>
                 <span class="n">ref_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;fd</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_train.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">]</span>
@@ -422,13 +422,50 @@ document.write(`
                 <span class="n">ref_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;fd</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_test.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">]</span>
             <span class="p">)[</span><span class="s2">&quot;rul&quot;</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-        <span class="p">]</span>
+        <span class="p">]</span></div>
 
-    <span class="k">def</span> <span class="nf">_read_csv_pgbar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csv_path</span><span class="p">,</span> <span class="n">index_col</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">100</span><span class="p">):</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;unit_num&quot;</span><span class="p">:</span> <span class="s2">&quot;run_id&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="RulCmapssPaper"><a class="viewcode-back" href="../../../reference/ice.remaining_useful_life_estimation.datasets.html#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper">[docs]</a><span class="k">class</span> <span class="nc">RulCmapssPaper</span><span class="p">(</span><span class="n">BaseDataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Preprocessed to piece wise RUL data from the dataset:</span>
+<span class="sd">    Saxena A. et al. Damage propagation modeling for aircraft engine run-to-failure simulation</span>
+<span class="sd">    DOI: 10.1109/PHM.2008.4711414. Target is the minimum rul value for every test device. </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="RulCmapssPaper.set_name_public_link"><a class="viewcode-back" href="../../../reference/ice.remaining_useful_life_estimation.datasets.html#ice.remaining_useful_life_estimation.datasets.RulCmapssPaper.set_name_public_link">[docs]</a>    <span class="k">def</span> <span class="nf">set_name_public_link</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;C-MAPSS_paper_test&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">public_link</span> <span class="o">=</span> <span class="s2">&quot;https://disk.yandex.ru/d/IoUNSJMZQhVkpw&quot;</span></div>
+
+    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_chunks</span><span class="p">,</span> <span class="n">force_download</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the test dataset in list obects: self.df, self.target, self.test and self.test_target.</span>
+<span class="sd">        4 subdatasets fd001-fd004, list index corresponds to a subdataset number</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ref_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">/&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ref_path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ref_path</span><span class="p">)</span>
+        <span class="n">zfile_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.zip&quot;</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_url</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">public_link</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">)</span> <span class="ow">or</span> <span class="n">force_download</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_download_pgbar</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">zfile_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">num_chunks</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_extracting_files</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">test</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_read_csv_pgbar</span><span class="p">(</span>
+                <span class="n">ref_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;fd</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_test.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rul&quot;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_target</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_read_csv_pgbar</span><span class="p">(</span>
+                <span class="n">ref_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/fd</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_test.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">]</span>
+            <span class="p">)[</span><span class="s2">&quot;rul&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="p">]</span></div>
 </pre></div>
 
                 </article>
