@@ -366,56 +366,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <h1>Source code for ice.anomaly_detection.metrics</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-
-
-<div class="viewcode-block" id="accuracy"><a class="viewcode-back" href="../../../reference/ice.anomaly_detection.metrics.html#ice.anomaly_detection.metrics.accuracy">[docs]</a><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">pred</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<div class="viewcode-block" id="accuracy"><a class="viewcode-back" href="../../../reference/ice.anomaly_detection.metrics.html#ice.anomaly_detection.metrics.accuracy">[docs]</a><span></span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">pred</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Accuracy of the classification is the number of true positives divided by </span>
 <span class="sd">    the number of examples.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        pred (np.ndarray): predictions.</span>
-<span class="sd">        target (np.ndarray): target values.</span>
+<span class="sd">        pred (list): predictions.</span>
+<span class="sd">        target (list): target values.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        float: accuracy.</span>
+<span class="sd">        float: accuracy</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="true_positive_rate"><a class="viewcode-back" href="../../../reference/ice.anomaly_detection.metrics.html#ice.anomaly_detection.metrics.true_positive_rate">[docs]</a><span class="k">def</span> <span class="nf">true_positive_rate</span><span class="p">(</span><span class="n">pred</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    True Positive Rate is the number of detected faults i divided by the </span>
-<span class="sd">    number of faults i.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        pred (np.ndarray): predictions.</span>
-<span class="sd">        target (np.ndarray): target values.</span>
-<span class="sd">    </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        list: list of float values with true positive rate for each fault.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="n">correct</span> <span class="o">=</span> <span class="n">cm</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">correct</span> <span class="o">/</span> <span class="n">cm</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></div>
-
-
-<div class="viewcode-block" id="false_positive_rate"><a class="viewcode-back" href="../../../reference/ice.anomaly_detection.metrics.html#ice.anomaly_detection.metrics.false_positive_rate">[docs]</a><span class="k">def</span> <span class="nf">false_positive_rate</span><span class="p">(</span><span class="n">pred</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    False Positive Rate, aka False Alarm Rate is the number of false alarms i </span>
-<span class="sd">    divided by the number of normal samples.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        pred (np.ndarray): predictions.</span>
-<span class="sd">        target (np.ndarray): target values.</span>
-<span class="sd">    </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        list: list of float values with true positive rate for each fault.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">cm</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">cm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span></div>
 </pre></div>
 
                 </article>

@@ -366,7 +366,8 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <h1>Source code for ice.anomaly_detection.models.autoencoder</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 
 <span class="kn">from</span> <span class="nn">ice.anomaly_detection.models.base</span> <span class="kn">import</span> <span class="n">BaseAnomalyDetection</span>
@@ -375,41 +376,48 @@ document.write(`
 <div class="viewcode-block" id="MLP"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP">[docs]</a><span class="k">class</span> <span class="nc">MLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
-            <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">num_sensors</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
             <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
             <span class="n">hidden_dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-            <span class="n">decoder</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span>
             <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span> <span class="o">=</span> <span class="n">input_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_sensors</span> <span class="o">=</span> <span class="n">num_sensors</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span> <span class="o">=</span> <span class="n">window_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">input_dim</span> <span class="o">*</span> <span class="n">window_size</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">decoder</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">num_sensors</span> <span class="o">*</span> <span class="n">window_size</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="k">if</span> <span class="n">hidden_dims</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;encoder&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">+</span> <span class="n">hidden_dims</span>
+        <span class="k">elif</span> <span class="n">hidden_dims</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;decoder&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">=</span> <span class="n">hidden_dims</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">+</span> <span class="n">hidden_dims</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">):</span>
+                <span class="n">dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;decoder&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_dims</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
                                 <span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">hidden_dims</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;decoder&#39;</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">num_layers</span><span class="p">:</span>
                 <span class="k">break</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">())</span>
 
 <div class="viewcode-block" id="MLP.forward"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;decoder&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_sensors</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">output</span></div></div>
 
 
 <div class="viewcode-block" id="AutoEncoderMLP"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP">[docs]</a><span class="k">class</span> <span class="nc">AutoEncoderMLP</span><span class="p">(</span><span class="n">BaseAnomalyDetection</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    MLP autoencoder consists of MLP encoder and MLP decoder parts. Each</span>
+<span class="sd">    Autoencoder (AE) consists of encoder and decoder parts. Each</span>
 <span class="sd">    sample is reshaped to a vector (B, L, C) -&gt; (B, L * C) for calculations</span>
 <span class="sd">    and to a vector (B, L * C) -&gt; (B, L, C) for the output. Where B is the</span>
 <span class="sd">    batch size, L is the sequence length, C is the number of sensors.</span>
@@ -417,24 +425,18 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-            <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
             <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
             <span class="n">lr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">,</span>
             <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
             <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">,</span>
             <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
             <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ae_anomaly_detection&#39;</span><span class="p">,</span>
-            <span class="n">random_seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
-            <span class="n">val_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span>
-            <span class="n">save_checkpoints</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="n">threshold_level</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
-            <span class="n">hidden_dims</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
+            <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+            <span class="n">hidden_dims</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span>
             <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Args:</span>
 <span class="sd">            window_size (int): The window size to train the model.</span>
-<span class="sd">            stride (int): The time interval between first points of consecutive </span>
-<span class="sd">                sliding windows in training.</span>
 <span class="sd">            batch_size (int): The batch size to train the model.</span>
 <span class="sd">            lr (float): The larning rate to train the model.</span>
 <span class="sd">            num_epochs (float): The number of epochs to train the model.</span>
@@ -442,19 +444,20 @@ document.write(`
 <span class="sd">                `cuda` are possible.</span>
 <span class="sd">            verbose (bool): If true, show the progress bar in training.</span>
 <span class="sd">            name (str): The name of the model for artifact storing.</span>
-<span class="sd">            random_seed (int): Seed for random number generation to ensure reproducible results.</span>
-<span class="sd">            val_ratio (float): Proportion of the dataset used for validation, between 0 and 1.</span>
-<span class="sd">            save_checkpoints (bool): If true, store checkpoints.</span>
-<span class="sd">            threshold_level (float): Takes a value from 0 to 1. It specifies</span>
-<span class="sd">                the quantile in the distribution of errors on the training</span>
-<span class="sd">                dataset at which the threshold value is set.</span>
+<span class="sd">            threshold (float): The boundary for anomaly detection.</span>
 <span class="sd">            hidden_dims (list): Dimensions of hidden layers in encoder/decoder.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="n">window_size</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">random_seed</span><span class="p">,</span> 
-            <span class="n">val_ratio</span><span class="p">,</span> <span class="n">save_checkpoints</span><span class="p">,</span> <span class="n">threshold_level</span>
+            <span class="n">window_size</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">threshold</span>
         <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span> <span class="o">=</span> <span class="n">window_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hidden_dims</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span> <span class="o">=</span> <span class="n">hidden_dims</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preprocessing</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 
     <span class="n">_param_conf_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">BaseAnomalyDetection</span><span class="o">.</span><span class="n">_param_conf_map</span><span class="p">,</span>
             <span class="o">**</span><span class="p">{</span>
@@ -462,20 +465,24 @@ document.write(`
             <span class="p">}</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">num_sensors</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="n">MLP</span><span class="p">(</span>
-                <span class="n">input_dim</span><span class="p">,</span>
+                <span class="n">num_sensors</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span><span class="p">,</span>
                 <span class="n">hidden_dims</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span><span class="p">,</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;encoder&#39;</span>
             <span class="p">),</span>
             <span class="n">MLP</span><span class="p">(</span>
-                <span class="n">input_dim</span><span class="p">,</span>
+                <span class="n">num_sensors</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span><span class="p">,</span>
                 <span class="n">hidden_dims</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_dims</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-                <span class="n">decoder</span><span class="o">=</span><span class="kc">True</span>
+                <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;decoder&#39;</span>
             <span class="p">)</span>
-        <span class="p">)</span></div>
+            <span class="p">)</span></div>
 </pre></div>
 
                 </article>

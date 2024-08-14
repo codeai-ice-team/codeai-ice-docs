@@ -418,27 +418,6 @@ document.write(`
   <section id="module-ice.remaining_useful_life_estimation.metrics">
 <span id="remaining-useful-life-metrics"></span><h1>Remaining useful life metrics<a class="headerlink" href="#module-ice.remaining_useful_life_estimation.metrics" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.metrics.cmapss_score">
-<span class="sig-prename descclassname"><span class="pre">ice.remaining_useful_life_estimation.metrics.</span></span><span class="sig-name descname"><span class="pre">cmapss_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/metrics.html#cmapss_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.metrics.cmapss_score" title="Permalink to this definition">#</a></dt>
-<dd><p>Non-simmetric metric proposed in the original dataset paper.
-DOI: 10.1109/PHM.2008.4711414</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pred</strong> (<em>list</em>) – numpy prediction values.</p></li>
-<li><p><strong>target</strong> (<em>list</em>) – numpy target values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>cmapss score function</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.metrics.nonsimmetric_function">
 <span class="sig-prename descclassname"><span class="pre">ice.remaining_useful_life_estimation.metrics.</span></span><span class="sig-name descname"><span class="pre">nonsimmetric_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/metrics.html#nonsimmetric_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.metrics.nonsimmetric_function" title="Permalink to this definition">#</a></dt>
 <dd><p>Exponent calculation function depending on the relative deviation from the true value</p>
@@ -468,6 +447,27 @@ DOI: 10.1109/PHM.2008.4711414</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>rmse</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ice.remaining_useful_life_estimation.metrics.score">
+<span class="sig-prename descclassname"><span class="pre">ice.remaining_useful_life_estimation.metrics.</span></span><span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/ice/remaining_useful_life_estimation/metrics.html#score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.remaining_useful_life_estimation.metrics.score" title="Permalink to this definition">#</a></dt>
+<dd><p>Non-simmetric metric proposed in the original dataset paper.
+DOI: 10.1109/PHM.2008.4711414</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pred</strong> (<em>list</em>) – numpy prediction values.</p></li>
+<li><p><strong>target</strong> (<em>list</em>) – numpy target values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cmapss score function</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -520,9 +520,9 @@ DOI: 10.1109/PHM.2008.4711414</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.metrics.cmapss_score"><code class="docutils literal notranslate"><span class="pre">cmapss_score()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.metrics.nonsimmetric_function"><code class="docutils literal notranslate"><span class="pre">nonsimmetric_function()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.metrics.rmse"><code class="docutils literal notranslate"><span class="pre">rmse()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.remaining_useful_life_estimation.metrics.score"><code class="docutils literal notranslate"><span class="pre">score()</span></code></a></li>
 </ul>
   </nav></div>
 

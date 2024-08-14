@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Results of anomaly detection using STGAT-MAD &#8212; ICE  documentation</title>
+    <title>ice &#8212; ICE  documentation</title>
   
   
   
@@ -46,11 +46,9 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'benchmark/ad_benchmark_stgat';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/modules';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Results of anomaly detection using GSL-GNN" href="ad_benchmark_gnn.html" />
-    <link rel="prev" title="Results of anomaly detection using AnomalyTransformer" href="ad_benchmark_transformer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -162,7 +160,7 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../reference/index.html">
+                      <a class="nav-link nav-internal" href="index.html">
                         API reference
                       </a>
                     </li>
@@ -175,8 +173,8 @@
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../benchmark/index.html">
                         Benchmarking
                       </a>
                     </li>
@@ -244,7 +242,7 @@ document.write(`
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -277,7 +275,7 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../reference/index.html">
+                      <a class="nav-link nav-internal" href="index.html">
                         API reference
                       </a>
                     </li>
@@ -290,8 +288,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../benchmark/index.html">
                         Benchmarking
                       </a>
                     </li>
@@ -319,27 +317,6 @@ document.write(`
       </div>
     
   </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="fd_benchmark_mlp_256.html">Results of fault diagnosis using MLP-256</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fd_benchmark_tcn.html">Results of fault diagnosis using TCN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_autoencodermlp_256.html">Results of anomaly detection using AutoEncoderMLP-256</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_transformer.html">Results of anomaly detection using AnomalyTransformer</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results of anomaly detection using STGAT-MAD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ad_benchmark_gnn.html">Results of anomaly detection using GSL-GNN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rul_benchmark_lstm_256.html">Results of RUL estimation using lstm-256</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rul_sota.html">Results of RUL estimation using IR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hi_benchmark_mlp_256.html">Results of HI estimation using MLP-256</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hi_sota.html">Results of HI estimation using Stacked LSTM</a></li>
-</ul>
-</div>
-</nav></div>
-    </div>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
@@ -373,10 +350,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Benchmarking</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">Results of anomaly detection using STGAT-MAD</li>
+    <li class="breadcrumb-item active" aria-current="page">ice</li>
   </ul>
 </nav>
 </div>
@@ -393,78 +367,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="results-of-anomaly-detection-using-stgat-mad">
-<h1>Results of anomaly detection using STGAT-MAD<a class="headerlink" href="#results-of-anomaly-detection-using-stgat-mad" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ice.anomaly_detection.datasets</span> <span class="kn">import</span> <span class="n">AnomalyDetectionRiethTEP</span>
-<span class="kn">from</span> <span class="nn">ice.anomaly_detection.models</span> <span class="kn">import</span> <span class="n">STGAT_MAD</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Download the dataset.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">AnomalyDetectionRiethTEP</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "16ec0e4a46ba4b91b67126185a088af7", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "5b095d76964347f0b20c92658896fac1", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "386ff939a156425a9d9323751e34de45", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Normalize the data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
-<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Create the GNN model.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">STGAT_MAD</span><span class="p">(</span>
-    <span class="n">window_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
-    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
-    <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">val_ratio</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">save_checkpoints</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">threshold_level</span><span class="o">=</span><span class="mf">0.98</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Load the checkpoint.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="s1">&#39;stgat_anomaly_detection_epoch_30.tar&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Evaluate the model on the test data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
-<span class="n">metrics</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e7cf8b9b2e6b42f3a337b33785e95c6b", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;accuracy&#39;: 0.861279659277504,
- &#39;true_positive_rate&#39;: [0.8352755],
- &#39;false_positive_rate&#39;: [0.019435206422018347]}
-</pre></div>
-</div>
-</div>
+  <section id="ice">
+<h1>ice<a class="headerlink" href="#ice" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ice.html">ice package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ice.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ice.html#module-ice.base">ice.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ice.html#ice.base.BaseDataset"><code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.html#ice.base.BaseDataset.__init__"><code class="docutils literal notranslate"><span class="pre">BaseDataset.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ice.html#ice.base.BaseDataset.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">BaseDataset.set_name_public_link()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ice.html#ice.base.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ice.html#ice.base.BaseModel.__init__"><code class="docutils literal notranslate"><span class="pre">BaseModel.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ice.html#ice.base.BaseModel.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseModel.evaluate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ice.html#ice.base.BaseModel.fit"><code class="docutils literal notranslate"><span class="pre">BaseModel.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ice.html#ice.base.BaseModel.from_config"><code class="docutils literal notranslate"><span class="pre">BaseModel.from_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ice.html#ice.base.BaseModel.predict"><code class="docutils literal notranslate"><span class="pre">BaseModel.predict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 
@@ -478,24 +406,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="ad_benchmark_transformer.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Results of anomaly detection using AnomalyTransformer</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="ad_benchmark_gnn.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Results of anomaly detection using GSL-GNN</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -507,7 +417,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/benchmark/ad_benchmark_stgat.ipynb.txt">
+    <a href="../_sources/reference/modules.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
