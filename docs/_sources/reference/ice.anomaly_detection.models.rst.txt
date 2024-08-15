@@ -4,7 +4,7 @@ Anomaly detection models
 BaseAnomalyDetection
 --------------------
 
-.. automodule:: ice.anomaly_detection.models.base
+.. autoclass:: ice.anomaly_detection.models.base.BaseAnomalyDetection
    :members:
    :show-inheritance:
 
@@ -23,14 +23,14 @@ AnomalyTransformer
    :show-inheritance:
 
 STGAT-MAD
-------------------
+---------
 
 .. autoclass:: ice.anomaly_detection.models.stgat.STGAT_MAD
    :members:
    :show-inheritance:
 
 GSL-GNN
-------------------
+-------
 
 .. autoclass:: ice.anomaly_detection.models.gnn.GSL_GNN
    :members:

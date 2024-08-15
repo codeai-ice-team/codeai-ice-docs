@@ -499,7 +499,7 @@ document.write(`
     <span class="k">return</span> <span class="n">edge_indices</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="STGAT"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.stgat.STGAT">[docs]</a><span class="k">class</span> <span class="nc">STGAT</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">STGAT</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">n_features</span><span class="p">,</span>
@@ -543,7 +543,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s1">&#39;fc_edge_index&#39;</span><span class="p">,</span> <span class="n">get_fc_graph_struc</span><span class="p">(</span><span class="n">n_features</span><span class="p">),</span> <span class="n">persistent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s1">&#39;tc_edge_index&#39;</span><span class="p">,</span> <span class="n">get_tc_graph_struc</span><span class="p">(</span><span class="n">window_size</span><span class="p">),</span> <span class="n">persistent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<div class="viewcode-block" id="STGAT.forward"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.stgat.STGAT.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="c1"># x shape (b, n, k): b - batch size, n - window size, k - number of features</span>
         <span class="n">fc_edge_index_sets</span> <span class="o">=</span> <span class="n">get_batch_edge_index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc_edge_index</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         <span class="n">tc_edge_index_sets</span> <span class="o">=</span> <span class="n">get_batch_edge_index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tc_edge_index</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -569,10 +569,10 @@ document.write(`
 
         <span class="n">recons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recon_model</span><span class="p">(</span><span class="n">h_end</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">recons</span></div></div>
+        <span class="k">return</span> <span class="n">recons</span>
 
 
-<span class="k">class</span> <span class="nc">STGAT_MAD</span><span class="p">(</span><span class="n">BaseAnomalyDetection</span><span class="p">):</span>
+<div class="viewcode-block" id="STGAT_MAD"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.stgat.STGAT_MAD">[docs]</a><span class="k">class</span> <span class="nc">STGAT_MAD</span><span class="p">(</span><span class="n">BaseAnomalyDetection</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Stgat-Mad was presented at ICASSP 2022: &quot;Stgat-Mad : Spatial-Temporal Graph </span>
 <span class="sd">    Attention Network For Multivariate Time Series Anomaly Detection&quot;.</span>
@@ -660,7 +660,7 @@ document.write(`
             <span class="n">recon_n_layers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">recon_n_layers</span><span class="p">,</span>
             <span class="n">recon_hid_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">recon_hid_dim</span><span class="p">,</span>
             <span class="n">dropout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropout</span>
-            <span class="p">)</span>
+            <span class="p">)</span></div>
 </pre></div>
 
                 </article>

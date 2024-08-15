@@ -403,7 +403,7 @@ document.write(`
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">)</span> <span class="ow">or</span> <span class="n">force_download</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_download_pgbar</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">zfile_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">num_chunks</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_extracting_files</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">,</span> <span class="n">ref_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_extracting_files</span><span class="p">(</span><span class="n">zfile_path</span><span class="p">,</span> <span class="s2">&quot;data/&quot;</span><span class="p">)</span>
 
         <span class="c1"># test and train subset number of cuts</span>
         <span class="n">train_nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
@@ -411,7 +411,7 @@ document.write(`
 
         <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_read_csv_pgbar</span><span class="p">(</span>
-                <span class="n">ref_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;case_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cut_no&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">]</span>
+                <span class="n">ref_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;case_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sample&quot;</span><span class="p">]</span>
             <span class="p">)</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
         <span class="p">]</span>

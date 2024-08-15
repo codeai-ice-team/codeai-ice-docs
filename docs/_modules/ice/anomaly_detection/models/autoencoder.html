@@ -372,7 +372,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">ice.anomaly_detection.models.base</span> <span class="kn">import</span> <span class="n">BaseAnomalyDetection</span>
 
 
-<div class="viewcode-block" id="MLP"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP">[docs]</a><span class="k">class</span> <span class="nc">MLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -399,12 +399,12 @@ document.write(`
                 <span class="k">break</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">())</span>
 
-<div class="viewcode-block" id="MLP.forward"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.MLP.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">output</span></div></div>
+        <span class="k">return</span> <span class="n">output</span>
 
 
 <div class="viewcode-block" id="AutoEncoderMLP"><a class="viewcode-back" href="../../../../reference/ice.anomaly_detection.models.html#ice.anomaly_detection.models.autoencoder.AutoEncoderMLP">[docs]</a><span class="k">class</span> <span class="nc">AutoEncoderMLP</span><span class="p">(</span><span class="n">BaseAnomalyDetection</span><span class="p">):</span>

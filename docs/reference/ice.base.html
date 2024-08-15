@@ -412,8 +412,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="module-ice.base">
-<span id="base-modules"></span><h1>Base modules<a class="headerlink" href="#module-ice.base" title="Permalink to this heading">#</a></h1>
+  <section id="base-modules">
+<h1>Base modules<a class="headerlink" href="#base-modules" title="Permalink to this heading">#</a></h1>
+<section id="basedataset">
+<h2>BaseDataset<a class="headerlink" href="#basedataset" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ice.base.BaseDataset">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.base.</span></span><span class="sig-name descname"><span class="pre">BaseDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_chunks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/base.html#BaseDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.base.BaseDataset" title="Permalink to this definition">#</a></dt>
@@ -436,6 +438,9 @@ Used for testing purposes.</p></li>
 
 </dd></dl>
 
+</section>
+<section id="basemodel">
+<h2>BaseModel<a class="headerlink" href="#basemodel" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ice.base.BaseModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.base.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_checkpoints</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/base.html#BaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.base.BaseModel" title="Permalink to this definition">#</a></dt>
@@ -609,12 +614,7 @@ of sensors.</p>
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="ice.base.SlidingWindowDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ice.base.</span></span><span class="sig-name descname"><span class="pre">SlidingWindowDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ice/base.html#SlidingWindowDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ice.base.SlidingWindowDataset" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></p>
-</dd></dl>
-
+</section>
 </section>
 
 
@@ -660,22 +660,27 @@ of sensors.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseDataset"><code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseDataset.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">BaseDataset.set_name_public_link()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basedataset">BaseDataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseDataset"><code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseDataset.set_name_public_link"><code class="docutils literal notranslate"><span class="pre">BaseDataset.set_name_public_link()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseModel.evaluate()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.fit"><code class="docutils literal notranslate"><span class="pre">BaseModel.fit()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.from_config"><code class="docutils literal notranslate"><span class="pre">BaseModel.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.load_checkpoint"><code class="docutils literal notranslate"><span class="pre">BaseModel.load_checkpoint()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.model_param_estimation"><code class="docutils literal notranslate"><span class="pre">BaseModel.model_param_estimation()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.optimize"><code class="docutils literal notranslate"><span class="pre">BaseModel.optimize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.predict"><code class="docutils literal notranslate"><span class="pre">BaseModel.predict()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">BaseModel.save_checkpoint()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.SlidingWindowDataset"><code class="docutils literal notranslate"><span class="pre">SlidingWindowDataset</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basemodel">BaseModel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.evaluate"><code class="docutils literal notranslate"><span class="pre">BaseModel.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.fit"><code class="docutils literal notranslate"><span class="pre">BaseModel.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.from_config"><code class="docutils literal notranslate"><span class="pre">BaseModel.from_config()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.load_checkpoint"><code class="docutils literal notranslate"><span class="pre">BaseModel.load_checkpoint()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.model_param_estimation"><code class="docutils literal notranslate"><span class="pre">BaseModel.model_param_estimation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.optimize"><code class="docutils literal notranslate"><span class="pre">BaseModel.optimize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.predict"><code class="docutils literal notranslate"><span class="pre">BaseModel.predict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ice.base.BaseModel.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">BaseModel.save_checkpoint()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
