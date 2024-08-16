@@ -1,6 +1,8 @@
 Anomaly detection models
 ========================
 
+.. _base_ad:
+
 BaseAnomalyDetection
 --------------------
 

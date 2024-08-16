@@ -1,6 +1,8 @@
 Health index models
 ===================
 
+.. _base_hi:
+
 BaseHealthIndexEstimation
 -------------------------
 

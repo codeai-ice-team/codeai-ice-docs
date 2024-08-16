@@ -1,6 +1,8 @@
 Remaining useful life models
 ============================
 
+.. _base_rul:
+
 BaseRemainingUsefulLifeEstimation
 ---------------------------------
 

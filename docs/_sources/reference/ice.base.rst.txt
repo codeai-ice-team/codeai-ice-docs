@@ -1,6 +1,8 @@
 Base modules
 ============
 
+.. _base_dataset:
+
 BaseDataset
 -----------
 

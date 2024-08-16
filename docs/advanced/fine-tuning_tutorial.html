@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Advanced materials &#8212; ICE  documentation</title>
+    <title>Fine-tuning tutorial &#8212; ICE  documentation</title>
   
   
   
@@ -46,11 +46,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/fine-tuning_tutorial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Optimization tutorial" href="optimization_tutorial.html" />
-    <link rel="prev" title="Tutorial on health index estimation task" href="../start/tutorials/health_index_estimation_basic.html" />
+    <link rel="next" title="API reference" href="../reference/index.html" />
+    <link rel="prev" title="Optimization tutorial" href="optimization_tutorial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,7 +155,7 @@
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                      <a class="nav-link nav-internal" href="index.html">
                         Advanced materials
                       </a>
                     </li>
@@ -270,7 +270,7 @@ document.write(`
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                      <a class="nav-link nav-internal" href="index.html">
                         Advanced materials
                       </a>
                     </li>
@@ -324,9 +324,9 @@ document.write(`
         <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="optimization_tutorial.html">Optimization tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fine-tuning_tutorial.html">Fine-tuning tutorial</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fine-tuning tutorial</a></li>
 </ul>
 </div>
 </nav></div>
@@ -364,7 +364,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Advanced materials</li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Advanced materials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Fine-tuning tutorial</li>
   </ul>
 </nav>
 </div>
@@ -381,13 +384,148 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="advanced-materials">
-<span id="advanced"></span><h1>Advanced materials<a class="headerlink" href="#advanced-materials" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="optimization_tutorial.html">Optimization tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fine-tuning_tutorial.html">Fine-tuning tutorial</a></li>
-</ul>
+  <section id="fine-tuning-tutorial">
+<h1>Fine-tuning tutorial<a class="headerlink" href="#fine-tuning-tutorial" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="kn">from</span> <span class="nn">ice.anomaly_detection.datasets</span> <span class="kn">import</span> <span class="n">AnomalyDetectionSmallTEP</span>
+<span class="kn">from</span> <span class="nn">ice.anomaly_detection.models</span> <span class="kn">import</span> <span class="n">AutoEncoderMLP</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create the model and dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">AnomalyDetectionSmallTEP</span><span class="p">()</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ed014042c3e7427b84c942f120fb6e0a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "213f2293cf1c4594b007a54c842e6290", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "461ee34fc88e4d9287ef9c68e352de36", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span> <span class="o">=</span> <span class="n">AutoEncoderMLP</span><span class="p">(</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9204d14e7f4e4e93b21377b0c6c9beff", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e453b458da184e9a8917218fb2f5cd2a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1, Loss: 0.8713
+Epoch 1, Validation Loss: 0.8847
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2, Loss: 0.8607
+Epoch 2, Validation Loss: 0.8557
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3, Loss: 0.8247
+Epoch 3, Validation Loss: 0.8167
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model1</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+<span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "62d02626c130446eb6c486d77d8cacda", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;accuracy&#39;: 0.7003322259136212,
+ &#39;true_positive_rate&#39;: [0.6632125],
+ &#39;false_positive_rate&#39;: [0.011359223300970873]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Save model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span><span class="o">.</span><span class="n">save_checkpoint</span><span class="p">(</span><span class="s1">&#39;model1.tar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create new model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model2</span> <span class="o">=</span> <span class="n">AutoEncoderMLP</span><span class="p">(</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load saved parameters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model2</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="s1">&#39;model1.tar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fine-tune</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">train_mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "07aec501b731418bbec576a37a68df32", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4a9da34174c406a9b3a84168fd5b1e2", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4, Loss: 0.7929
+Epoch 4, Validation Loss: 0.7954
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5, Loss: 0.7838
+Epoch 5, Validation Loss: 0.7866
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6, Loss: 0.7814
+Epoch 6, Validation Loss: 0.7806
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model2</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">test_mask</span><span class="p">])</span>
+<span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "097a90d95e16407cbe45ab603be14dc4", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;accuracy&#39;: 0.7454928017718715,
+ &#39;true_positive_rate&#39;: [0.7170875],
+ &#39;false_positive_rate&#39;: [0.03388349514563107]}
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -402,20 +540,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../start/tutorials/health_index_estimation_basic.html"
+       href="optimization_tutorial.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tutorial on health index estimation task</p>
+        <p class="prev-next-title">Optimization tutorial</p>
       </div>
     </a>
     <a class="right-next"
-       href="optimization_tutorial.html"
+       href="../reference/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Optimization tutorial</p>
+        <p class="prev-next-title">API reference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -430,7 +568,7 @@ document.write(`
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/advanced/index.rst.txt">
+    <a href="../_sources/advanced/fine-tuning_tutorial.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
