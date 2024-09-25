@@ -390,13 +390,46 @@ document.write(`
 inheritance scheme. The user dataset should be described by a class
 that inherits from the base dataset class <a class="reference internal" href="../reference/ice.base.html#base-dataset"><span class="std std-ref">BaseDataset</span></a>. The class should
 implement the method <strong>set_name_public_link</strong>. The method does not take any
-parameters other than the standard self parameter. The method should
-assign a name of the dataset to the class attribute <strong>name</strong> and
+parameters other than the standard self-parameter. The method should
+assign the name of the dataset to the class attribute <strong>name</strong> and
 assign a download link to the class attribute <strong>public_link</strong>. Currently,
 only download links from the cloud service
 <a class="reference external" href="https://360.yandex.ru/disk/">Yandex Disk</a> are supported.
 The download link should point to a <strong>zip</strong> archive that contains files
 specific to each task.</p>
+<section id="fault-diagnosis">
+<h2>Fault Diagnosis<a class="headerlink" href="#fault-diagnosis" title="Permalink to this heading">#</a></h2>
+<p>Dataset should be provided as ZIP archive with a set of files in Comma-Separated
+Values (CSV) format. The set of files includes:
+1. df.csv - a file with a table of sensor values at each point in time. The
+rows contain a sequence of values. The first two columns of the table are
+run_id and sample. The run_id column contains the run identifiers of the
+industrial process. The sample column contains the sequence element numbers.
+All other columns contain sensor values.
+2. target.csv - file with the table of industrial process states. Table
+columns: run_id, sample, target. The run_id column contains the run identifier
+of the industrial process. The sample column contains the number of the
+sequence element. The target column contains the state number of the
+industrial process, where 0 is the normal state.
+3. train_mask.csv - file with the table of the mask of the training
+sample. Columns of the table: run_id, sample, train_mask. The run_id column
+contains the identifier of the industrial process start. The sample column
+contains the sequence element number. The train_mask column contains the
+value of the training sample attribute, where 0 is not a training sample,
+1 is a training sample.</p>
+</section>
+<section id="anomaly-detection">
+<h2>Anomaly Detection<a class="headerlink" href="#anomaly-detection" title="Permalink to this heading">#</a></h2>
+<p>Dataset should be provided in the same way as for the Fault Diagnosis task.</p>
+</section>
+<section id="rul">
+<h2>RUL<a class="headerlink" href="#rul" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="hi">
+<h2>HI<a class="headerlink" href="#hi" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="additional-preprocessing-steps">
+<h2>Additional preprocessing steps<a class="headerlink" href="#additional-preprocessing-steps" title="Permalink to this heading">#</a></h2>
 <p>In the case of a structurally complex dataset or its parts that need to
 be processed simultaneously according to a specific rule, it is
 permissible to override the <strong>_load</strong> method with the attributes
@@ -405,6 +438,7 @@ from <a class="reference internal" href="../reference/ice.base.html#base-dataset
 for the number of loaded data fragments, and <strong>force_download</strong> controls
 the mandatory download of the file from the cloud even if the directory
 contains a folder with the data.</p>
+</section>
 </section>
 
 
@@ -443,6 +477,20 @@ contains a folder with the data.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fault-diagnosis">Fault Diagnosis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anomaly-detection">Anomaly Detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rul">RUL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hi">HI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-preprocessing-steps">Additional preprocessing steps</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">

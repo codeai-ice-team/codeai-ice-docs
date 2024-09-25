@@ -394,12 +394,12 @@ the base classes of the task model: <a class="reference internal" href="../refer
 <p>The <strong>__init__</strong> method should include parameters of the base task class, as well
 as parameters specific to this model, such as <strong>hidden_dim</strong> for an
 <a class="reference internal" href="../reference/ice.fault_diagnosis.models.html#mlp"><span class="std std-ref">MLP</span></a> model. The method should call the <strong>__init__</strong> method of the
-parent class, passing all necessary parameters to it.</p>
+parent class, passing all necessary parameters.</p>
 <p>The <strong>_create_model</strong> method should include the parameters <strong>input_dim</strong>
 and <strong>output_dim</strong>, which define the number of sensors and the number of
 output values, respectively. For <a class="reference internal" href="../start/tasks/task_fd.html#task-fd"><span class="std std-ref">Fault diagnosis</span></a> tasks, the number of
 output values corresponds to the number of faults, while for other tasks,
-this number is equal to 1. The method should assign an object of the
+this number equals 1. The method should assign an object of the
 <a class="reference external" href="https://pytorch.org/">PyTorch</a> neural network model of type <strong>torch.nn.Module</strong> to the model
 attribute of the class.</p>
 <p>The source code of the user model should be located in the directory

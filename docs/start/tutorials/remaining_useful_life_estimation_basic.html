@@ -415,12 +415,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\user\conda\envs\Latent\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
-</pre></div>
-</div>
-</div>
 </div>
 <p>Initializing model class and train/test data split</p>
 <div class="cell docutils container">
@@ -429,6 +423,35 @@ document.write(`
 
 <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">test_data</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dataset_class</span><span class="o">.</span><span class="n">test_target</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading C-MAPSS: 100%|██████████| 29.3M/29.3M [00:07&lt;00:00, 4.10MB/s]
+Extracting C-MAPSS/fd1_test.csv: 9.77MB [00:00, 10.3GB/s]                   
+Extracting C-MAPSS/fd1_train.csv: 9.77MB [00:00, 10.3GB/s]                   
+Extracting C-MAPSS/fd2_test.csv: 19.5MB [00:00, 2.28GB/s]                   
+Extracting C-MAPSS/fd2_train.csv: 29.3MB [00:00, 1.14GB/s]                   
+Extracting C-MAPSS/fd3_test.csv: 9.77MB [00:00, 5.14GB/s]                   
+Extracting C-MAPSS/fd3_train.csv: 9.77MB [00:00, 5.14GB/s]                   
+Extracting C-MAPSS/fd4_test.csv: 19.5MB [00:00, 1.37GB/s]                   
+Extracting C-MAPSS/fd4_train.csv: 29.3MB [00:00, 907MB/s]                    
+Reading data/C-MAPSS/fd1_train.csv: 100%|██████████| 20631/20631 [00:00&lt;00:00, 414000.30it/s]
+Reading data/C-MAPSS/fd2_train.csv: 100%|██████████| 53759/53759 [00:00&lt;00:00, 531391.39it/s]
+Reading data/C-MAPSS/fd3_train.csv: 100%|██████████| 24720/24720 [00:00&lt;00:00, 496056.24it/s]
+Reading data/C-MAPSS/fd4_train.csv: 100%|██████████| 61249/61249 [00:00&lt;00:00, 539069.75it/s]
+Reading data/C-MAPSS/fd1_train.csv: 100%|██████████| 20631/20631 [00:00&lt;00:00, 449997.33it/s]
+Reading data/C-MAPSS/fd2_train.csv: 100%|██████████| 53759/53759 [00:00&lt;00:00, 528800.50it/s]
+Reading data/C-MAPSS/fd3_train.csv: 100%|██████████| 24720/24720 [00:00&lt;00:00, 496034.88it/s]
+Reading data/C-MAPSS/fd4_train.csv: 100%|██████████| 61249/61249 [00:00&lt;00:00, 532046.23it/s]
+Reading data/C-MAPSS/fd1_test.csv: 100%|██████████| 13097/13097 [00:00&lt;00:00, 477747.14it/s]
+Reading data/C-MAPSS/fd2_test.csv: 100%|██████████| 33991/33991 [00:00&lt;00:00, 494267.82it/s]
+Reading data/C-MAPSS/fd3_test.csv: 100%|██████████| 16598/16598 [00:00&lt;00:00, 520427.44it/s]
+Reading data/C-MAPSS/fd4_test.csv: 100%|██████████| 41214/41214 [00:00&lt;00:00, 523441.82it/s]
+Reading data/C-MAPSS/fd1_test.csv: 100%|██████████| 13097/13097 [00:00&lt;00:00, 505412.69it/s]
+Reading data/C-MAPSS/fd2_test.csv: 100%|██████████| 33991/33991 [00:00&lt;00:00, 509017.18it/s]
+Reading data/C-MAPSS/fd3_test.csv: 100%|██████████| 16598/16598 [00:00&lt;00:00, 512334.66it/s]
+Reading data/C-MAPSS/fd4_test.csv: 100%|██████████| 41214/41214 [00:00&lt;00:00, 526743.49it/s]
 </pre></div>
 </div>
 </div>
@@ -453,27 +476,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/5 [00:00&lt;?, ?it/s]
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 25000.32it/s]
-
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33333.10it/s]
- 20%|██        | 1/5 [00:47&lt;03:09, 47.29s/it]
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33341.05it/s]
-
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33341.05it/s]
- 40%|████      | 2/5 [01:33&lt;02:19, 46.56s/it]
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 24998.83it/s]
-
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 49985.75it/s]
- 60%|██████    | 3/5 [02:19&lt;01:32, 46.38s/it]
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 11192.27it/s]
-
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33333.10it/s]
- 80%|████████  | 4/5 [03:06&lt;00:46, 46.70s/it]
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33322.51it/s]
-
-Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33335.75it/s]
-100%|██████████| 5/5 [03:54&lt;00:00, 46.88s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33444.73it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33444.73it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33562.49it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33447.40it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33444.73it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33450.07it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33442.07it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 50159.10it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33447.40it/s]
+Creating sequence of samples: 100%|██████████| 100/100 [00:00&lt;00:00, 33444.73it/s]
+100%|██████████| 5/5 [02:55&lt;00:00, 35.06s/it]
 </pre></div>
 </div>
 </div>
@@ -482,21 +495,19 @@ Creating sequence of samples: 100%|██████████| 100/100 [00:0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmse</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">score</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cmapss_score</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">metrics_i</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
     <span class="n">rmse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">])</span>
-    <span class="n">score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">])</span>
-<span class="n">rmse_mean</span><span class="p">,</span> <span class="n">rmse_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">score_mean</span><span class="p">,</span> <span class="n">score_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cmapss_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics_i</span><span class="p">[</span><span class="s2">&quot;cmapss_score&quot;</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rmse: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;score: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cmapss_score: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cmapss_score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">cmapss_score</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rmse: 14.456039 ± 0.461288
-score: 54669.804238 ± 15056.124157
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rmse: 14.417728 ± 0.149395
+cmapss_score: 38126.871653 ± 4720.122718
 </pre></div>
 </div>
 </div>
@@ -509,7 +520,7 @@ score: 54669.804238 ± 15056.124157
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(944129, (0.8843235832452774, 0.06986449102077215))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(944129, (0.9755877789258957, 0.45680200297600426))
 </pre></div>
 </div>
 </div>
