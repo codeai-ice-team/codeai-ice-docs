@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Custom Data &#8212; ICE  documentation</title>
+    <title>Training and Inference &#8212; ICE  documentation</title>
   
   
   
@@ -46,11 +46,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'custom/custom_data';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'start/train_inf';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Benchmarking" href="../benchmark/index.html" />
-    <link rel="prev" title="Custom Model" href="custom_model.html" />
+    <link rel="next" title="Quick tutorials" href="tutorials/index.html" />
+    <link rel="prev" title="Health index" href="tasks/task_hi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -147,8 +147,8 @@
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../start/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
                         Getting started
                       </a>
                     </li>
@@ -168,8 +168,8 @@
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../custom/index.html">
                         Custom classes
                       </a>
                     </li>
@@ -262,8 +262,8 @@ document.write(`
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../start/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
                         Getting started
                       </a>
                     </li>
@@ -283,8 +283,8 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../custom/index.html">
                         Custom classes
                       </a>
                     </li>
@@ -325,8 +325,22 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="custom_model.html">Custom Model</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Custom Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tasks/index.html">Tasks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tasks/task_fd.html">Fault diagnosis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks/task_ad.html">Anomaly detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks/task_rul.html">Remaining useful lifetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks/task_hi.html">Health index</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Training and Inference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/index.html">Quick tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/fault_diagnosis_basic.html">Tutorial on fault diagnosis task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/anomaly_detection_basic.html">Tutorial on anomaly detection task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/remaining_useful_life_estimation_basic.html">Tutorial on remaining useful lifetime estimation task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/health_index_estimation_basic.html">Tutorial on health index estimation task</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav></div>
@@ -365,9 +379,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Custom classes</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Getting started</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Custom Data</li>
+    <li class="breadcrumb-item active" aria-current="page">Training and Inference</li>
   </ul>
 </nav>
 </div>
@@ -384,81 +398,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="custom-data">
-<span id="id1"></span><h1>Custom Data<a class="headerlink" href="#custom-data" title="Permalink to this heading">#</a></h1>
-<p>Users can independently add datasets according to the
-inheritance scheme. The user dataset should be described by a class
-that inherits from the base dataset class <a class="reference internal" href="../reference/ice.base.html#base-dataset"><span class="std std-ref">BaseDataset</span></a>. The class should
-implement the method <strong>set_name_public_link</strong>. The method does not take any
-parameters other than the standard self-parameter. The method should
-assign the name of the dataset to the class attribute <strong>name</strong> and
-assign a download link to the class attribute <strong>public_link</strong>. Currently,
-only download links from the cloud service
-<a class="reference external" href="https://360.yandex.ru/disk/">Yandex Disk</a> are supported.
-The download link should point to a <strong>zip</strong> archive that contains files
-specific to each task.</p>
-<section id="fault-diagnosis">
-<h2>Fault Diagnosis<a class="headerlink" href="#fault-diagnosis" title="Permalink to this heading">#</a></h2>
-<p>Dataset should be provided as ZIP archive with a set of files in Comma-Separated
-Values (CSV) format. The set of files includes:
-1. df.csv - a file with a table of sensor values at each point in time. The
-rows contain a sequence of values. The first two columns of the table are
-run_id and sample. The run_id column contains the run identifiers of the
-industrial process. The sample column contains the sequence element numbers.
-All other columns contain sensor values.
-2. target.csv - file with the table of industrial process states. Table
-columns: run_id, sample, target. The run_id column contains the run identifier
-of the industrial process. The sample column contains the number of the
-sequence element. The target column contains the state number of the
-industrial process, where 0 is the normal state.
-3. train_mask.csv - file with the table of the mask of the training
-sample. Columns of the table: run_id, sample, train_mask. The run_id column
-contains the identifier of the industrial process start. The sample column
-contains the sequence element number. The train_mask column contains the
-value of the training sample attribute, where 0 is not a training sample,
-1 is a training sample.</p>
+  <section id="training-and-inference">
+<span id="train-inf"></span><h1>Training and Inference<a class="headerlink" href="#training-and-inference" title="Permalink to this heading">#</a></h1>
+<section id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this heading">#</a></h2>
+<p>Model training is performed by calling the fit method of the industrial model class.
+This method has a universal interface for all tasks. A detailed description of this
+method is available in the documentation at the following link:</p>
+<p><a class="reference external" href="https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html#ice.base.BaseModel.fit">https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html#ice.base.BaseModel.fit</a></p>
+<p>The choice of optimizer type and loss function is fixed at the task model level within
+the benchmarking framework, and other model parameters are set during its
+initialization. When developing custom models that use functions different from the
+base ones, it is necessary to override the _prepare_for_training method in the model,
+where the type of optimizer and loss functions are explicitly set as attributes. The
+base functions are located in the models/base.py file of each task, and an example can
+be found at the following link:</p>
+<p><a class="github reference external" href="https://github.com/codeai-ice-team/codeai-ice/blob/main/ice/anomaly_detection/models/base.py">codeai-ice-team/codeai-ice</a></p>
+<p>To improve the quality of the optimization task solution, the learning rate can vary
+during training according to a predetermined schedule.</p>
+<p>Model training involves running the fit method for various tasks, and training examples
+for each task can be found in the documentation at the following address:</p>
+<p><a class="reference external" href="https://codeai-ice-team.github.io/codeai-ice-docs/start/tutorials">https://codeai-ice-team.github.io/codeai-ice-docs/start/tutorials</a></p>
+<p>From an algorithmic perspective, model training, in accordance with the project
+annotation, is performed using the PyTorch framework and its implemented mechanisms
+for automatic differentiation and building computational graphs to implement
+backpropagation mechanisms. A detailed description can be found at the following
+address:</p>
+<p><a class="reference external" href="https://pytorch.org/blog/computational-graphs-constructed-in-pytorch/">https://pytorch.org/blog/computational-graphs-constructed-in-pytorch/</a></p>
 </section>
-<section id="anomaly-detection">
-<h2>Anomaly Detection<a class="headerlink" href="#anomaly-detection" title="Permalink to this heading">#</a></h2>
-<p>Dataset should be provided in the same way as for the Fault Diagnosis task.</p>
-</section>
-<section id="rul">
-<h2>RUL<a class="headerlink" href="#rul" title="Permalink to this heading">#</a></h2>
-<p>The data should be provided as a ZIP archive containing a set of files in
-Comma-Separated Values (CSV) format. The set of files includes:</p>
-<p>File train.csv.
-Rows contain a sequence of values. The first three columns of the table are:
-run_id, sample, and rul. The run_id column contains identifiers of the industrial
-process run. The sample column contains the sequence element numbers. The rul
-column contains the time until the device fails. All other columns contain sensor
-values.</p>
-<p>File test.csv.
-Rows contain a sequence of values. The first three columns of the table are:
-run_id, sample, and rul. The run_id column contains identifiers of the industrial
-process run. The sample column contains the sequence element numbers. The rul column
-contains the time until the device fails. All other columns contain sensor values.</p>
-</section>
-<section id="hi">
-<h2>HI<a class="headerlink" href="#hi" title="Permalink to this heading">#</a></h2>
-<p>The data should be provided as a ZIP archive containing a set of files in
-Comma-Separated Values (CSV) format. The set of files includes:</p>
-<p>case_n.csv — a set of n files with a table of sensor values at each moment in
-time, each file representing the results of measuring the degradation of a
-device within a single process. Rows contain a sequence of values. Table
-columns contain characteristics of materials and processes (unchanged within
-the process), a set of sensor readings over time, and the measured degradation
-value. The column run_id contains identifiers of the industrial process run.</p>
-</section>
-<section id="additional-preprocessing-steps">
-<h2>Additional preprocessing steps<a class="headerlink" href="#additional-preprocessing-steps" title="Permalink to this heading">#</a></h2>
-<p>In the case of a structurally complex dataset or its parts that need to
-be processed simultaneously according to a specific rule, it is
-permissible to override the <strong>_load</strong> method with the attributes
-<strong>num_chunks</strong> and <strong>force_download</strong> in the user class that inherits
-from <a class="reference internal" href="../reference/ice.base.html#base-dataset"><span class="std std-ref">BaseDataset</span></a>. The <strong>num_chunks</strong> attribute is responsible
-for the number of loaded data fragments, and <strong>force_download</strong> controls
-the mandatory download of the file from the cloud even if the directory
-contains a folder with the data.</p>
+<section id="inference">
+<h2>Inference<a class="headerlink" href="#inference" title="Permalink to this heading">#</a></h2>
+<p>Model inference is the process of obtaining a model’s prediction based on a set of
+input data after the model has been trained. In the ICE library, model inference
+is performed by calling the predict method. The predict method has a universal
+interface for all tasks. A detailed description of this method and its parameters
+is available in the documentation at the following link:</p>
+<p><a class="reference external" href="https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html#ice.base.BaseModel.predict">https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html#ice.base.BaseModel.predict</a></p>
+<p>Model inference involves running the predict method for various tasks, and examples
+of inference for each task can be found in:</p>
+<p><a class="reference external" href="https://codeai-ice-team.github.io/codeai-ice-docs/start/tutorials">https://codeai-ice-team.github.io/codeai-ice-docs/start/tutorials</a></p>
+<p>From an algorithmic perspective, a trained model represents a set of transformations
+of input data, with the parameters of these transformations corresponding to the
+model’s parameters. The predict method applies these transformations to modify the
+input sequence according to the sequence described in the forward method of the
+industrial model in the PyTorch library. An example of model organization can be
+found at the following address:</p>
+<p><a class="reference external" href="https://pytorch.org/tutorials/beginner/introyt/modelsyt_tutorial.html">https://pytorch.org/tutorials/beginner/introyt/modelsyt_tutorial.html</a></p>
+<p>For a trained model, it is possible to evaluate the prediction speed, which corresponds
+to the model’s inference speed, along with the amount of memory occupied. For this
+purpose, at the level of the 1st level model, the method model_param_estimation() is
+implemented, which is inherited by all models in the library. Calling this method
+returns the number of model parameters and the prediction speed, averaged over 500
+model runs. Memory estimation for the model is performed by multiplying the number of
+model parameters by the data type size. For each model implemented within the dataset,
+the prediction speed and the amount of memory occupied are estimated based on the
+float32 data type (4 bytes per parameter).</p>
+<p>A detailed description of the method is available in the documentation in the
+model_param_estimation section at the following link:</p>
+<p><a class="reference external" href="https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html">https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html</a></p>
 </section>
 </section>
 
@@ -473,20 +470,20 @@ contains a folder with the data.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="custom_model.html"
+       href="tasks/task_hi.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Custom Model</p>
+        <p class="prev-next-title">Health index</p>
       </div>
     </a>
     <a class="right-next"
-       href="../benchmark/index.html"
+       href="tutorials/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Benchmarking</p>
+        <p class="prev-next-title">Quick tutorials</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -505,17 +502,14 @@ contains a folder with the data.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fault-diagnosis">Fault Diagnosis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anomaly-detection">Anomaly Detection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rul">RUL</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hi">HI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-preprocessing-steps">Additional preprocessing steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inference">Inference</a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/custom/custom_data.rst.txt">
+    <a href="../_sources/start/train_inf.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

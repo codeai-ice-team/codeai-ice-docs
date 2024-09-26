@@ -46,8 +46,34 @@ Dataset should be provided in the same way as for the Fault Diagnosis task.
 RUL
 """
 
+The data should be provided as a ZIP archive containing a set of files in 
+Comma-Separated Values (CSV) format. The set of files includes:
+
+File train.csv.
+Rows contain a sequence of values. The first three columns of the table are: 
+run_id, sample, and rul. The run_id column contains identifiers of the industrial 
+process run. The sample column contains the sequence element numbers. The rul 
+column contains the time until the device fails. All other columns contain sensor 
+values.
+
+File test.csv.
+Rows contain a sequence of values. The first three columns of the table are: 
+run_id, sample, and rul. The run_id column contains identifiers of the industrial 
+process run. The sample column contains the sequence element numbers. The rul column 
+contains the time until the device fails. All other columns contain sensor values.
+
 HI 
 ""
+
+The data should be provided as a ZIP archive containing a set of files in 
+Comma-Separated Values (CSV) format. The set of files includes:
+
+case_n.csv — a set of n files with a table of sensor values at each moment in 
+time, each file representing the results of measuring the degradation of a 
+device within a single process. Rows contain a sequence of values. Table 
+columns contain characteristics of materials and processes (unchanged within 
+the process), a set of sensor readings over time, and the measured degradation 
+value. The column run_id contains identifiers of the industrial process run.
 
 Additional preprocessing steps
 """"""""""""""""""""""""""""""

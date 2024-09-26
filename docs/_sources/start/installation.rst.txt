@@ -4,6 +4,18 @@
 Installation
 ------------
 
+Minimum system requirements
+"""""""""""""""""""""""""""
+
+- OS: Windows 11 or higher, MacOS 14 or higher, Ubuntu 18 or higher
+- Processor: 1xCPU 2.2GHz
+- RAM: 13 GB
+- HDD Space: 100 GB
+- Video Card for training: 1xGPU NVIDIA GTX1080
+
+Installation
+""""""""""""
+
 ICE library can be installed using pip as follows:
 
 ::

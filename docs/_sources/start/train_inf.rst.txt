@@ -1,0 +1,81 @@
+.. _train_inf:
+
+----------------------
+Training and Inference
+----------------------
+
+Training
+""""""""
+
+Model training is performed by calling the fit method of the industrial model class. 
+This method has a universal interface for all tasks. A detailed description of this 
+method is available in the documentation at the following link:
+
+https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html#ice.base.BaseModel.fit
+
+The choice of optimizer type and loss function is fixed at the task model level within 
+the benchmarking framework, and other model parameters are set during its 
+initialization. When developing custom models that use functions different from the 
+base ones, it is necessary to override the _prepare_for_training method in the model, 
+where the type of optimizer and loss functions are explicitly set as attributes. The 
+base functions are located in the models/base.py file of each task, and an example can 
+be found at the following link:
+
+https://github.com/codeai-ice-team/codeai-ice/blob/main/ice/anomaly_detection/models/base.py
+
+To improve the quality of the optimization task solution, the learning rate can vary 
+during training according to a predetermined schedule.
+
+Model training involves running the fit method for various tasks, and training examples 
+for each task can be found in the documentation at the following address:
+
+https://codeai-ice-team.github.io/codeai-ice-docs/start/tutorials
+
+From an algorithmic perspective, model training, in accordance with the project 
+annotation, is performed using the PyTorch framework and its implemented mechanisms 
+for automatic differentiation and building computational graphs to implement 
+backpropagation mechanisms. A detailed description can be found at the following 
+address:
+
+https://pytorch.org/blog/computational-graphs-constructed-in-pytorch/
+
+
+Inference
+"""""""""
+
+Model inference is the process of obtaining a model's prediction based on a set of 
+input data after the model has been trained. In the ICE library, model inference 
+is performed by calling the predict method. The predict method has a universal 
+interface for all tasks. A detailed description of this method and its parameters 
+is available in the documentation at the following link:
+
+https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html#ice.base.BaseModel.predict
+
+Model inference involves running the predict method for various tasks, and examples 
+of inference for each task can be found in:
+
+https://codeai-ice-team.github.io/codeai-ice-docs/start/tutorials
+
+From an algorithmic perspective, a trained model represents a set of transformations 
+of input data, with the parameters of these transformations corresponding to the 
+model's parameters. The predict method applies these transformations to modify the 
+input sequence according to the sequence described in the forward method of the 
+industrial model in the PyTorch library. An example of model organization can be 
+found at the following address:
+
+https://pytorch.org/tutorials/beginner/introyt/modelsyt_tutorial.html
+
+For a trained model, it is possible to evaluate the prediction speed, which corresponds 
+to the model's inference speed, along with the amount of memory occupied. For this 
+purpose, at the level of the 1st level model, the method model_param_estimation() is 
+implemented, which is inherited by all models in the library. Calling this method 
+returns the number of model parameters and the prediction speed, averaged over 500 
+model runs. Memory estimation for the model is performed by multiplying the number of 
+model parameters by the data type size. For each model implemented within the dataset, 
+the prediction speed and the amount of memory occupied are estimated based on the 
+float32 data type (4 bytes per parameter).
+
+A detailed description of the method is available in the documentation in the 
+model_param_estimation section at the following link:
+
+https://codeai-ice-team.github.io/codeai-ice-docs/reference/ice.base.html

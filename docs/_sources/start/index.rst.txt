@@ -4,9 +4,51 @@
 Getting started
 ###############
 
+Tasks
+=====
+
+The library solves the following industrial monitoring tasks:
+
++----------------------------+--------------+---------------------------+-------------------------------------------------------------------+
+| Task                       | Setting      | Type                      | Description                                                       |
++============================+==============+===========================+===================================================================+
+| Fault diagnosis            | Supervised   | Multiclass classification | For a given sample of sensor data, to classify the type of fault  |
++----------------------------+--------------+---------------------------+-------------------------------------------------------------------+
+| Anomaly detection          | Unsupervised | Binary classification     | For a given sample of sensor data, to define if it is a faulty    |
+|                            |              |                           | state or the normal state                                         |
++----------------------------+--------------+---------------------------+-------------------------------------------------------------------+
+| Remaining Useful Life      | Supervised   | Regression                | For a given sample of sensor data, to estimate the number of      |
+| Estimation                 |              |                           | machine operation cycles until a breakdown                        |
++----------------------------+--------------+---------------------------+-------------------------------------------------------------------+
+| Health Index Estimation    | Supervised   | Regression                | For a given sample of sensor data, to measure the deviation of    |
+|                            |              |                           | the device state from a fully functional state                    |
++----------------------------+--------------+---------------------------+-------------------------------------------------------------------+
+
+Industrial applications
+=======================
+
+1. **Chemical industry**: Monitoring and optimisation of chemical processes, management and prevention of emergency situations.
+2. **Oil and gas industry**: Prediction and prevention of equipment failures, optimisation of production and processing. Equipment failure prediction and prevention, production and processing optimisation.
+3. **Energy**: Monitoring and control of energy systems, including power plants, wind turbines and solar power plants.
+4. **Automotive**: Diagnosis and prediction of potential failures and breakdowns in automotive manufacturing processes and the production processes of automotive plants.
+5. **Electronics manufacturing**: Quality control and defect detection in the manufacturing of electronic components. Production process of electronic components.
+6. **Food production**: Monitoring of production parameters to ensure food safety and quality. Food safety and quality assurance.
+7. **Pharmaceutical industry**: Monitoring and optimising the production of pharmaceuticals.
+
+Benchmarking
+============
+
+The library provides benchmarks for industrial monitoring tasks:
+
+1. **Tennessee Eastman Process (TEP)** — sensor data of the chemical process consisting of 52 sensors and 28 faulty states for evaluation fault detection/diagnosis systems.
+2. **NASA Milling** — the dataset with 16 sub-datasets in which the cutting depths, feed rates and material types were changed. The sensors used to record the milling process are two vibroaccelerometers, two “AE” sensors, and two “CTA” current sensors. The dataset is used for evaluation Health Index Estimation methods.
+3. **NASA Commercial Modular Aero-Propulsion System Simulation (C-MAPSS)** — dataset with four subsets of data. Each subset contains readings from 21 sensors located in different parts of the degrading engine, controlled by three operational settings characteristics: height, speed, and acceleration in terms of altitude, Mach number, and throttle resolver angle. The dataset is used for evaluation Remaining Useful Lifetime Estimation methods.
+
+
 .. toctree::
     :maxdepth: 2
 
     installation
     tasks/index
+    train_inf
     tutorials/index
